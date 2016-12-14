@@ -1,6 +1,6 @@
 # bee-upload
 [![npm version](https://img.shields.io/npm/v/bee-upload.svg)](https://www.npmjs.com/package/bee-upload)
-[![Build Status](https://img.shields.io/travis/tinper-bee/generator-tinper-bee/master.svg)](https://travis-ci.org/tinper-bee/bee-upload)
+[![Build Status](https://img.shields.io/travis/tinper-bee/bee-upload/master.svg)](https://travis-ci.org/tinper-bee/bee-upload)
 [![devDependency Status](https://img.shields.io/david/dev/tinper-bee/bee-upload.svg)](https://david-dm.org/tinper-bee/bee-upload#info=devDependencies)
 
 通过Upload可以将资源（web page,text,picture,video...）传到远程服务器
@@ -67,7 +67,7 @@ import "./node_modules/build/bee-upload.css"
 
 |参数|说明|类型|默认值|
 |---|----|---|------|
-|name|文件名|string|’file|
+|name|文件名|string|file|
 |defaultFileList|默认已上传的文件列表|array|-|
 |fileList|已上传的文件列表,多用于onChange事件里|array|-|
 |action|上传的服务器地址|array|-|
