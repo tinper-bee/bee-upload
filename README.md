@@ -3,15 +3,62 @@
 [![Build Status](https://img.shields.io/travis/tinper-bee/generator-tinper-bee/master.svg)](https://travis-ci.org/tinper-bee/bee-upload)
 [![devDependency Status](https://img.shields.io/david/dev/tinper-bee/bee-upload.svg)](https://david-dm.org/tinper-bee/bee-upload#info=devDependencies)
 
+通过Upload可以将资源（web page,text,picture,video...）传到远程服务器
 
-react bee-upload component for tinper-bee
+## 使用
 
-some description...
-
-## 使用方法
-
+### 使用单独的Upload包
+#### 组件引入
+先进行下载Upload包
+```
+npm install --save bee-upload
+```
+组件调用
 ```js
+import { Upload } from 'bee-upload';
 
+const props = {
+  name: 'file',
+  action: '/upload.do',
+  headers: {
+    authorization: 'authorization-text',
+  },
+  onChange(info) {
+    if (info.file.status !== 'uploading') {
+      console.log(info.file, info.fileList);
+    }
+    if (info.file.status === 'done') {
+      console.log(`${info.file.name} file uploaded successfully`);
+    } else if (info.file.status === 'error') {
+      console.log(`${info.file.name} file upload failed.`);
+    }
+  },
+};
+
+class Demo1 extends Component {
+	render(){
+		return( 
+			<Upload {...props}>
+        <Button type="primary" shape="border">
+          <Icon type="upload" /> Click to Upload
+        </Button>
+      </Upload>
+		)
+	}
+}
+
+React.render(<Demo1 />, document.getElementById('target'));
+```
+#### 样式引入
+- 可以使用link引入dist目录下tooltip.css
+```
+<link rel="stylesheet" href="./node_modules/build/bee-upload.css">
+```
+- 可以在js中import样式
+```js
+import "./node_modules/src/Upload.scss"
+//或是
+import "./node_modules/build/bee-upload.css"
 ```
 
 
@@ -19,7 +66,40 @@ some description...
 ## API
 
 |参数|说明|类型|默认值|
-|:--|:---:|:--:|---:|
+|---|----|---|------|
+|name|文件名|string|’file|
+|defaultFileList|默认已上传的文件列表|array|-|
+|fileList|已上传的文件列表,多用于onChange事件里|array|-|
+|action|上传的服务器地址|array|-|
+|data|上传参数或者函数	|Object or function|-|
+|headers|设置请求的头部信息 兼容ie10以上|object|-|
+|showUploadList|是否显示上传列表|bool|true|
+|multiple|是否支持多文件上传 兼容ie10以上|bool|false|
+|accept|设置文件接收类型|string|-|
+|beforeUpload|在上传之前执行的函数，当Promise返回false或者被拒绝，函数被中指。不兼容老ie|func|-|
+|customRequest|覆盖默认的XHR,可定制自己的XMLHttpRequest|func|-|
+|onChange|当上传状态改变之后执行的回调函数|func|-|
+|listType|内置的样式，支持text和picture|string|'text'|
+|onRemove|当删除按钮点击后触发的回调函数|func|-|
+|supportServerRender|当服务器正在渲染时，是否需要打开|bool|false|
+
+### onChange
+
+当文件正在上传，上传成功和上传失败触发的回调函数。
+当上传状态发生变化，返回下列参数。
+
+```
+{
+  file: {
+	   uid: 'uid',      // 唯一性id
+	   name: 'xx.png'   // 文件名
+	   status: 'done',  // 参数：uploading, done, error, removed
+	   response: '{"status": "success"}',  // 服务器返回的参数
+	},
+  fileList: [ /* ... */ ], //当前文件列表
+  event: { /* ... */ }, //服务器响应：包括上传进度  不兼容老的浏览器
+}
+```
 
 #### 开发调试
 
