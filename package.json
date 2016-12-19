@@ -38,7 +38,7 @@
   "bee-icon": "0.0.2",
   "bee-progress-bar": "^0.1.1",
   "classnames": "^2.2.5",
-  "tinper-bee-core": "0.0.12",
+  "tinper-bee-core": "latest",
   "warning": "2.x"
  },
  "devDependencies": {
