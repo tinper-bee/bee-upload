@@ -1,7 +1,8 @@
 /**
- * @title 多颜色`Checkbox`
- * @description `colors`参数控制背景色
+ * @title 可视化图片`Upload`
+ * @description 自定义上传图片格式，上传成功后以缩略图的形式显示。
  */
+ 
 function getBase64(img, callback) {
   const reader = new FileReader();
   reader.addEventListener('load', () => callback(reader.result));

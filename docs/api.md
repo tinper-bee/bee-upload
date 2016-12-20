@@ -2,13 +2,13 @@
 
 过Upload可以将资源（web page,text,picture,video...）传到远程服务器
 
-## 代码展示
+## 代码演示
 
 
 ## API
 
 |参数|说明|类型|默认值|
-|---|----|---|------|
+|:---|:----|:---|:------|
 |name|文件名|string|file|
 |defaultFileList|默认已上传的文件列表|array|-|
 |fileList|已上传的文件列表,多用于onChange事件里|array|-|

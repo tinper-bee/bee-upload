@@ -1,3 +1,8 @@
+/**
+ * @title 列表`Upload`
+ * @description 自定义已上传文件列表。
+ */
+
 const demo3props = {
   action: '/upload.do',
   onChange(info) {

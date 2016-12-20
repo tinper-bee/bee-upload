@@ -1,6 +1,6 @@
 /**
- * @title Checkbox
- * @description `checked` 参数设置是否选中，`disabled`设置是否可用。
+ * @title 常用按钮Upload
+ * @description 通过定义props，来自定义上传文件和服务地址等信息。在onChange方法的参数info，是上传返回的回调参数。常用的是上传的状态。
  */
 const props = {
   name: 'file',

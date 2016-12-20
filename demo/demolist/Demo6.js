@@ -1,3 +1,9 @@
+/**
+ * @title 拖拽`Upload`
+ * @description 文件以拖拽的形式上传。
+ */
+
+
 const Dragger = Upload.Dragger;
 
 const demo6props = {
