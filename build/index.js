@@ -265,16 +265,16 @@ var Upload = function (_React$Component) {
   Upload.prototype.render = function render() {
     var _classNames2;
 
-    var _props = this.props;
-    var _props$prefixCls = _props.prefixCls;
-    var prefixCls = _props$prefixCls === undefined ? '' : _props$prefixCls;
-    var showUploadList = _props.showUploadList;
-    var listType = _props.listType;
-    var onPreview = _props.onPreview;
-    var type = _props.type;
-    var disabled = _props.disabled;
-    var children = _props.children;
-    var className = _props.className;
+    var _props = this.props,
+        _props$prefixCls = _props.prefixCls,
+        prefixCls = _props$prefixCls === undefined ? '' : _props$prefixCls,
+        showUploadList = _props.showUploadList,
+        listType = _props.listType,
+        onPreview = _props.onPreview,
+        type = _props.type,
+        disabled = _props.disabled,
+        children = _props.children,
+        className = _props.className;
 
 
     var rcUploadProps = (0, _objectAssign2["default"])({}, this.props, {

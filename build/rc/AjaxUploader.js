@@ -224,15 +224,15 @@ var AjaxUploader = function (_Component) {
   AjaxUploader.prototype.render = function render() {
     var _classNames;
 
-    var _props = this.props;
-    var Tag = _props.component;
-    var prefixCls = _props.prefixCls;
-    var className = _props.className;
-    var disabled = _props.disabled;
-    var style = _props.style;
-    var multiple = _props.multiple;
-    var accept = _props.accept;
-    var children = _props.children;
+    var _props = this.props,
+        Tag = _props.component,
+        prefixCls = _props.prefixCls,
+        className = _props.className,
+        disabled = _props.disabled,
+        style = _props.style,
+        multiple = _props.multiple,
+        accept = _props.accept,
+        children = _props.children;
 
     var cls = (0, _classnames2["default"])((_classNames = {}, _defineProperty(_classNames, prefixCls, true), _defineProperty(_classNames, prefixCls + '-disabled', disabled), _defineProperty(_classNames, className, className), _classNames));
     var events = disabled ? {} : {

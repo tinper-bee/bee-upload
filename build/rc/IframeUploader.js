@@ -108,8 +108,8 @@ var IframeUploader = function (_Component) {
     if (!this.state.uploading) {
       return;
     }
-    var props = this.props;
-    var file = this.file;
+    var props = this.props,
+        file = this.file;
 
     var response = void 0;
     try {
@@ -284,13 +284,13 @@ var IframeUploader = function (_Component) {
   IframeUploader.prototype.render = function render() {
     var _classNames;
 
-    var _props = this.props;
-    var Tag = _props.component;
-    var disabled = _props.disabled;
-    var className = _props.className;
-    var prefixCls = _props.prefixCls;
-    var children = _props.children;
-    var style = _props.style;
+    var _props = this.props,
+        Tag = _props.component,
+        disabled = _props.disabled,
+        className = _props.className,
+        prefixCls = _props.prefixCls,
+        children = _props.children,
+        style = _props.style;
 
     var iframeStyle = _extends({}, IFRAME_STYLE, {
       display: this.state.uploading || disabled ? 'none' : ''

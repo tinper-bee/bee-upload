@@ -103,11 +103,11 @@ var UploadList = function (_React$Component) {
     var _this3 = this,
         _classNames2;
 
-    var _props = this.props;
-    var prefixCls = _props.prefixCls;
-    var _props$items = _props.items;
-    var items = _props$items === undefined ? [] : _props$items;
-    var listType = _props.listType;
+    var _props = this.props,
+        prefixCls = _props.prefixCls,
+        _props$items = _props.items,
+        items = _props$items === undefined ? [] : _props$items,
+        listType = _props.listType;
 
     var list = items.map(function (file) {
       var _classNames;
