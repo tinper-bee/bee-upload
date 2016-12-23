@@ -24,7 +24,7 @@ class Demo1 extends Component {
 	render(){
 		return( 
 			<Upload {...props}>
-        <Button type="primary" shape="border">
+        <Button shape="border">
           <Icon type="upload" /> Click to Upload
         </Button>
       </Upload>
