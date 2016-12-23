@@ -35,8 +35,8 @@
  "dependencies": {
   "bee-animate": "latest",
   "bee-button": "latest",
-  "bee-icon": "0.0.2",
-  "bee-progress-bar": "^0.1.1",
+  "bee-icon": "latest",
+  "bee-progress-bar": "latest",
   "classnames": "^2.2.5",
   "tinper-bee-core": "latest",
   "warning": "2.x"
