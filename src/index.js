@@ -1,10 +1,10 @@
-import React from 'react';
+import React,{PropTypes,Component} from 'react';
 import RcUpload from './rc/index';
 import UploadList from './uploadList';
 import getFileItem from './getFileItem';
 import classNames from 'classnames';
 import assign from 'object-assign';
-import { UploadProps } from './interface';
+//import { UploadProps } from './interface';
 
 function T() {
   return true;
@@ -51,16 +51,41 @@ function genPercentAdd() {
   };
 }
 
-export { UploadProps };
 
 export function Dragger(props) {
   return <Upload {...props} type="drag" style={{ height: props.height }}/>;
 }
 
-export default class Upload extends React.Component<UploadProps, any> {
-  static Dragger = Dragger;
+const propTypes ={
+  type: PropTypes.oneOf(['drag', 'select']),
+  name: PropTypes.string,
+  defaultFileList: PropTypes.array,
+  fileList: PropTypes.array,
+  action: PropTypes.string,
+  data: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.func
+  ]),
+  headers: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.string
+  ]),
+  showUploadList: PropTypes.bool,
+  multiple: PropTypes.bool,
+  accept: PropTypes.string,
+  beforeUpload: PropTypes.func,
+  onChange: PropTypes.func,
+  listType: PropTypes.oneOf(['text', 'picture', 'picture-card']),
+  className: PropTypes.string,
+  onPreview: PropTypes.func,
+  onRemove: PropTypes.func,
+  supportServerRender: PropTypes.bool,
+  style: PropTypes.object,
+  disabled: PropTypes.bool,
+  prefixCls: PropTypes.string
+}
 
-  static defaultProps = {
+const defaultProps = {
     prefixCls: 'u-upload',
     type: 'select',
     multiple: false,
@@ -73,8 +98,9 @@ export default class Upload extends React.Component<UploadProps, any> {
     className: '',
     disabled: false,
     supportServerRender: true,
-  };
+};
 
+class Upload extends Component {
   recentUploadStatus: boolean | PromiseLike<any>;
   progressTimer: any;
   refs: {
@@ -315,3 +341,7 @@ export default class Upload extends React.Component<UploadProps, any> {
     );
   }
 }
+Upload.propTypes = propTypes;
+Upload.defaultProps = defaultProps;
+Upload.Dragger = Dragger;
+export default Upload;

@@ -1,9 +1,9 @@
-import React from 'react';
+import React,{Component,PropTypes} from 'react';
 import Animate from 'bee-animate';
 import Icon from 'bee-icon';
 import ProgressBar from 'bee-progress-bar';
 import classNames from 'classnames';
-import { UploadListProps } from './interface';
+//import { UploadListProps } from './interface';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
 const previewFile = (file, callback) => {
@@ -12,15 +12,26 @@ const previewFile = (file, callback) => {
   reader.readAsDataURL(file);
 };
 
-export default class UploadList extends React.Component<UploadListProps, any> {
-  static defaultProps = {
+const propTypes = {
+  listType: PropTypes.oneOf(['text', 'picture', 'picture-card']),
+  onPreview: PropTypes.func,
+  onRemove: PropTypes.func,
+  items: PropTypes.array,
+  progressAttr: PropTypes.object,
+  prefixCls: PropTypes.string
+}
+
+const defaultProps = {
     listType: 'text',  // or picture
     progressAttr: {
       strokeWidth: 3,
       showInfo: false,
     },
-    prefixCls: 'u-upload',
+    prefixCls: 'u-upload'
   };
+
+class UploadList extends Component{
+  
 
   handleClose = (file) => {
     const onRemove = this.props.onRemove;
@@ -165,3 +176,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     );
   }
 }
+
+UploadList.propTypes = propTypes;
+UploadList.defaultProps = defaultProps;
+export default UploadList;
