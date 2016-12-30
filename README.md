@@ -50,7 +50,7 @@ class Demo1 extends Component {
 React.render(<Demo1 />, document.getElementById('target'));
 ```
 #### 样式引入
-- 可以使用link引入dist目录下tooltip.css
+- 可以使用link引入dist目录下upload.css
 ```
 <link rel="stylesheet" href="./node_modules/build/bee-upload.css">
 ```
