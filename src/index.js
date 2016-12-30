@@ -1,5 +1,5 @@
 import React,{PropTypes,Component} from 'react';
-import RcUpload from './rc/index';
+import RcUpload from './Upload';
 import UploadList from './uploadList';
 import getFileItem from './getFileItem';
 import classNames from 'classnames';
@@ -56,6 +56,24 @@ export function Dragger(props) {
   return <Upload {...props} type="drag" style={{ height: props.height }}/>;
 }
 
+const File ={
+  uid: PropTypes.number,
+  size: PropTypes.number,
+  name: PropTypes.string,
+  lastModifiedDate: PropTypes.date,
+  url: PropTypes.string,
+  status: PropTypes.oneOf(['error', 'success', 'done', 'uploading', 'removed']),
+  percent: PropTypes.number,
+  thumbUrl: PropTypes.string,
+  originFileObj: File
+}
+
+const UploadChangeParam ={
+  file: File,
+  fileList: PropTypes.array,
+  event: PropTypes.object
+}
+
 const propTypes ={
   type: PropTypes.oneOf(['drag', 'select']),
   name: PropTypes.string,
@@ -82,11 +100,11 @@ const propTypes ={
   supportServerRender: PropTypes.bool,
   style: PropTypes.object,
   disabled: PropTypes.bool,
-  prefixCls: PropTypes.string
+  clsPrefix: PropTypes.string
 }
 
 const defaultProps = {
-    prefixCls: 'u-upload',
+    clsPrefix: 'u-upload',
     type: 'select',
     multiple: false,
     action: '',
@@ -266,7 +284,7 @@ class Upload extends Component {
 
   render() {
     const {
-      prefixCls = '', showUploadList, listType, onPreview,
+      clsPrefix = '', showUploadList, listType, onPreview,
       type, disabled, children, className,
     } = this.props;
 
@@ -288,11 +306,11 @@ class Upload extends Component {
     ) : null;
 
     if (type === 'drag') {
-      const dragCls = classNames(prefixCls, {
-        [`${prefixCls}-drag`]: true,
-        [`${prefixCls}-drag-uploading`]: this.state.fileList.some(file => file.status === 'uploading'),
-        [`${prefixCls}-drag-hover`]: this.state.dragState === 'dragover',
-        [`${prefixCls}-disabled`]: disabled,
+      const dragCls = classNames(clsPrefix, {
+        [`${clsPrefix}-drag`]: true,
+        [`${clsPrefix}-drag-uploading`]: this.state.fileList.some(file => file.status === 'uploading'),
+        [`${clsPrefix}-drag-hover`]: this.state.dragState === 'dragover',
+        [`${clsPrefix}-disabled`]: disabled,
       });
       return (
         <span className={className}>
@@ -302,8 +320,8 @@ class Upload extends Component {
             onDragOver={this.onFileDrop}
             onDragLeave={this.onFileDrop}
           >
-            <RcUpload {...rcUploadProps} ref="upload" className={`${prefixCls}-btn`}>
-              <div className={`${prefixCls}-drag-container`}>
+            <RcUpload {...rcUploadProps} ref="upload" className={`${clsPrefix}-btn`}>
+              <div className={`${clsPrefix}-drag-container`}>
                 {children}
               </div>
             </RcUpload>
@@ -313,10 +331,10 @@ class Upload extends Component {
       );
     }
 
-    const uploadButtonCls = classNames(prefixCls, {
-      [`${prefixCls}-select`]: true,
-      [`${prefixCls}-select-${listType}`]: true,
-      [`${prefixCls}-disabled`]: disabled,
+    const uploadButtonCls = classNames(clsPrefix, {
+      [`${clsPrefix}-select`]: true,
+      [`${clsPrefix}-select-${listType}`]: true,
+      [`${clsPrefix}-disabled`]: disabled,
     });
 
     const uploadButton = (

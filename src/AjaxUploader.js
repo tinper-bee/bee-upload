@@ -8,7 +8,7 @@ import getUid from './uid';
 const propTypes = {
     component: PropTypes.string,
     style: PropTypes.object,
-    prefixCls: PropTypes.string,
+    clsPrefix: PropTypes.string,
     className: PropTypes.string,
     multiple: PropTypes.bool,
     disabled: PropTypes.bool,
@@ -178,12 +178,12 @@ class AjaxUploader extends Component{
 
   render() {
     const {
-      component: Tag, prefixCls, className, disabled,
+      component: Tag, clsPrefix, className, disabled,
       style, multiple, accept, children,
     } = this.props;
     const cls = classNames({
-      [prefixCls]: true,
-      [`${prefixCls}-disabled`]: disabled,
+      [clsPrefix]: true,
+      [`${clsPrefix}-disabled`]: disabled,
       [className]: className,
     });
     const events = disabled ? {} : {

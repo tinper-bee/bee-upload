@@ -18,7 +18,7 @@ const propTypes = {
   onRemove: PropTypes.func,
   items: PropTypes.array,
   progressAttr: PropTypes.object,
-  prefixCls: PropTypes.string
+  clsPrefix: PropTypes.string
 }
 
 const defaultProps = {
@@ -27,7 +27,7 @@ const defaultProps = {
       strokeWidth: 3,
       showInfo: false,
     },
-    prefixCls: 'u-upload'
+    clsPrefix: 'u-upload'
   };
 
 class UploadList extends Component{
@@ -75,7 +75,7 @@ class UploadList extends Component{
   }
 
   render() {
-    const { prefixCls, items = [], listType } = this.props;
+    const { clsPrefix, items = [], listType } = this.props;
     const list = items.map(file => {
       let progress;
       let icon = <Icon type="paper-clip-outline" />;
@@ -83,14 +83,14 @@ class UploadList extends Component{
       if (listType === 'picture' || listType === 'picture-card') {
         if (file.status === 'uploading' || (!file.thumbUrl && !file.url)) {
           if (listType === 'picture-card') {
-            icon = <div className={`${prefixCls}-list-item-uploading-text`}>文件上传中</div>;
+            icon = <div className={`${clsPrefix}-list-item-uploading-text`}>文件上传中</div>;
           } else {
-            icon = <Icon className={`${prefixCls}-list-item-thumbnail`} type="picture" />;
+            icon = <Icon className={`${clsPrefix}-list-item-thumbnail`} type="picture" />;
           }
         } else {
           icon = (
             <a
-              className={`${prefixCls}-list-item-thumbnail`}
+              className={`${clsPrefix}-list-item-thumbnail`}
               onClick={e => this.handlePreview(file, e)}
               href={file.url || file.thumbUrl}
               target="_blank"
@@ -108,22 +108,22 @@ class UploadList extends Component{
         );
       }
       const infoUploadingClass = classNames({
-        [`${prefixCls}-list-item`]: true,
-        [`${prefixCls}-list-item-${file.status}`]: true,
+        [`${clsPrefix}-list-item`]: true,
+        [`${clsPrefix}-list-item-${file.status}`]: true,
       });
       const preview = file.url ? (
         <a
           href={file.url}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${prefixCls}-list-item-name`}
+          className={`${clsPrefix}-list-item-name`}
           onClick={e => this.handlePreview(file, e)}
         >
           {file.name}
         </a>
       ) : (
         <span
-          className={`${prefixCls}-list-item-name`}
+          className={`${clsPrefix}-list-item-name`}
           onClick={e => this.handlePreview(file, e)}
         >
           {file.name}
@@ -152,7 +152,7 @@ class UploadList extends Component{
 
       return (
         <div className={infoUploadingClass} key={file.uid}>
-          <div className={`${prefixCls}-list-item-info`}>
+          <div className={`${clsPrefix}-list-item-info`}>
             {icon}
             {preview}
             {actions}
@@ -162,12 +162,12 @@ class UploadList extends Component{
       );
     });
     const listClassNames = classNames({
-      [`${prefixCls}-list`]: true,
-      [`${prefixCls}-list-${listType}`]: true,
+      [`${clsPrefix}-list`]: true,
+      [`${clsPrefix}-list-${listType}`]: true,
     });
     return (
       <Animate
-        transitionName={`${prefixCls}-margin-top`}
+        transitionName={`${clsPrefix}-margin-top`}
         component="div"
         className={listClassNames}
       >

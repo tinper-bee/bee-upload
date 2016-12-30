@@ -17,7 +17,7 @@ const propTypes = {
     component: PropTypes.string,
     style: PropTypes.object,
     disabled: PropTypes.bool,
-    prefixCls: PropTypes.string,
+    clsPrefix: PropTypes.string,
     className: PropTypes.string,
     accept: PropTypes.string,
     onStart: PropTypes.func,
@@ -271,15 +271,15 @@ class IframeUploader extends Component{
   render() {
     const {
       component: Tag, disabled, className,
-      prefixCls, children, style,
+      clsPrefix, children, style,
     } = this.props;
     const iframeStyle = {
       ...IFRAME_STYLE,
       display: this.state.uploading || disabled ? 'none' : '',
     };
     const cls = classNames({
-      [prefixCls]: true,
-      [`${prefixCls}-disabled`]: disabled,
+      [clsPrefix]: true,
+      [`${clsPrefix}-disabled`]: disabled,
       [className]: className,
     });
     return (

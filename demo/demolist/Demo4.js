@@ -10,14 +10,14 @@ const demo4props = {
     uid: -1,
     name: 'xxx.png',
     status: 'done',
-    url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-    thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    url: 'http://design.yyuap.com/logos/logox.png',
+    thumbUrl: 'http://design.yyuap.com/logos/logox.png',
   }, {
     uid: -2,
     name: 'yyy.png',
     status: 'done',
-    url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-    thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    url: 'http://design.yyuap.com/logos/logox.png',
+    thumbUrl: 'http://design.yyuap.com/logos/logox.png',
   }],
 };
 

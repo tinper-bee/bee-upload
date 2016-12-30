@@ -8,7 +8,7 @@ function empty() {
 const propTypes = {
     component: PropTypes.string,
     style: PropTypes.object,
-    prefixCls: PropTypes.string,
+    clsPrefix: PropTypes.string,
     action: PropTypes.string,
     name: PropTypes.string,
     multipart: PropTypes.bool,
@@ -32,7 +32,7 @@ const propTypes = {
 }
 const defaultProps = {
     component: 'span',
-    prefixCls: 'u-upload',
+    clsPrefix: 'u-upload',
     data: {},
     headers: {},
     name: 'file',
