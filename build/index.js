@@ -3,7 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.UploadProps = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -13,9 +12,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _index = require('./rc/index');
+var _Upload = require('./Upload');
 
-var _index2 = _interopRequireDefault(_index);
+var _Upload2 = _interopRequireDefault(_Upload);
 
 var _uploadList = require('./uploadList');
 
@@ -33,8 +32,6 @@ var _objectAssign = require('object-assign');
 
 var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
-var _interface = require('./interface');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -46,6 +43,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+
+//import { UploadProps } from './interface';
 
 function T() {
   return true;
@@ -92,18 +91,73 @@ function genPercentAdd() {
   };
 }
 
-exports.UploadProps = _interface.UploadProps;
 function Dragger(props) {
   return _react2["default"].createElement(Upload, _extends({}, props, { type: 'drag', style: { height: props.height } }));
 }
 
-var Upload = function (_React$Component) {
-  _inherits(Upload, _React$Component);
+var File = {
+  uid: _react.PropTypes.number,
+  size: _react.PropTypes.number,
+  name: _react.PropTypes.string,
+  lastModifiedDate: _react.PropTypes.date,
+  url: _react.PropTypes.string,
+  status: _react.PropTypes.oneOf(['error', 'success', 'done', 'uploading', 'removed']),
+  percent: _react.PropTypes.number,
+  thumbUrl: _react.PropTypes.string,
+  originFileObj: File
+};
+
+var UploadChangeParam = {
+  file: File,
+  fileList: _react.PropTypes.array,
+  event: _react.PropTypes.object
+};
+
+var propTypes = {
+  type: _react.PropTypes.oneOf(['drag', 'select']),
+  name: _react.PropTypes.string,
+  defaultFileList: _react.PropTypes.array,
+  fileList: _react.PropTypes.array,
+  action: _react.PropTypes.string,
+  data: _react.PropTypes.oneOfType([_react.PropTypes.object, _react.PropTypes.func]),
+  headers: _react.PropTypes.oneOfType([_react.PropTypes.object, _react.PropTypes.string]),
+  showUploadList: _react.PropTypes.bool,
+  multiple: _react.PropTypes.bool,
+  accept: _react.PropTypes.string,
+  beforeUpload: _react.PropTypes.func,
+  onChange: _react.PropTypes.func,
+  listType: _react.PropTypes.oneOf(['text', 'picture', 'picture-card']),
+  className: _react.PropTypes.string,
+  onPreview: _react.PropTypes.func,
+  onRemove: _react.PropTypes.func,
+  supportServerRender: _react.PropTypes.bool,
+  style: _react.PropTypes.object,
+  disabled: _react.PropTypes.bool,
+  clsPrefix: _react.PropTypes.string
+};
+
+var defaultProps = {
+  clsPrefix: 'u-upload',
+  type: 'select',
+  multiple: false,
+  action: '',
+  data: {},
+  accept: '',
+  beforeUpload: T,
+  showUploadList: true,
+  listType: 'text', // or pictrue
+  className: '',
+  disabled: false,
+  supportServerRender: true
+};
+
+var Upload = function (_Component) {
+  _inherits(Upload, _Component);
 
   function Upload(props) {
     _classCallCheck(this, Upload);
 
-    var _this = _possibleConstructorReturn(this, _React$Component.call(this, props));
+    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 
     _this.onStart = function (file) {
       var targetItem = void 0;
@@ -266,8 +320,8 @@ var Upload = function (_React$Component) {
     var _classNames2;
 
     var _props = this.props,
-        _props$prefixCls = _props.prefixCls,
-        prefixCls = _props$prefixCls === undefined ? '' : _props$prefixCls,
+        _props$clsPrefix = _props.clsPrefix,
+        clsPrefix = _props$clsPrefix === undefined ? '' : _props$clsPrefix,
         showUploadList = _props.showUploadList,
         listType = _props.listType,
         onPreview = _props.onPreview,
@@ -295,9 +349,9 @@ var Upload = function (_React$Component) {
     if (type === 'drag') {
       var _classNames;
 
-      var dragCls = (0, _classnames2["default"])(prefixCls, (_classNames = {}, _defineProperty(_classNames, prefixCls + '-drag', true), _defineProperty(_classNames, prefixCls + '-drag-uploading', this.state.fileList.some(function (file) {
+      var dragCls = (0, _classnames2["default"])(clsPrefix, (_classNames = {}, _defineProperty(_classNames, clsPrefix + '-drag', true), _defineProperty(_classNames, clsPrefix + '-drag-uploading', this.state.fileList.some(function (file) {
         return file.status === 'uploading';
-      })), _defineProperty(_classNames, prefixCls + '-drag-hover', this.state.dragState === 'dragover'), _defineProperty(_classNames, prefixCls + '-disabled', disabled), _classNames));
+      })), _defineProperty(_classNames, clsPrefix + '-drag-hover', this.state.dragState === 'dragover'), _defineProperty(_classNames, clsPrefix + '-disabled', disabled), _classNames));
       return _react2["default"].createElement(
         'span',
         { className: className },
@@ -310,11 +364,11 @@ var Upload = function (_React$Component) {
             onDragLeave: this.onFileDrop
           },
           _react2["default"].createElement(
-            _index2["default"],
-            _extends({}, rcUploadProps, { ref: 'upload', className: prefixCls + '-btn' }),
+            _Upload2["default"],
+            _extends({}, rcUploadProps, { ref: 'upload', className: clsPrefix + '-btn' }),
             _react2["default"].createElement(
               'div',
-              { className: prefixCls + '-drag-container' },
+              { className: clsPrefix + '-drag-container' },
               children
             )
           )
@@ -323,12 +377,12 @@ var Upload = function (_React$Component) {
       );
     }
 
-    var uploadButtonCls = (0, _classnames2["default"])(prefixCls, (_classNames2 = {}, _defineProperty(_classNames2, prefixCls + '-select', true), _defineProperty(_classNames2, prefixCls + '-select-' + listType, true), _defineProperty(_classNames2, prefixCls + '-disabled', disabled), _classNames2));
+    var uploadButtonCls = (0, _classnames2["default"])(clsPrefix, (_classNames2 = {}, _defineProperty(_classNames2, clsPrefix + '-select', true), _defineProperty(_classNames2, clsPrefix + '-select-' + listType, true), _defineProperty(_classNames2, clsPrefix + '-disabled', disabled), _classNames2));
 
     var uploadButton = _react2["default"].createElement(
       'div',
       { className: uploadButtonCls, style: { display: children ? '' : 'none' } },
-      _react2["default"].createElement(_index2["default"], _extends({}, rcUploadProps, { ref: 'upload' }))
+      _react2["default"].createElement(_Upload2["default"], _extends({}, rcUploadProps, { ref: 'upload' }))
     );
 
     if (listType === 'picture-card') {
@@ -348,21 +402,9 @@ var Upload = function (_React$Component) {
   };
 
   return Upload;
-}(_react2["default"].Component);
+}(_react.Component);
 
+Upload.propTypes = propTypes;
+Upload.defaultProps = defaultProps;
 Upload.Dragger = Dragger;
-Upload.defaultProps = {
-  prefixCls: 'u-upload',
-  type: 'select',
-  multiple: false,
-  action: '',
-  data: {},
-  accept: '',
-  beforeUpload: T,
-  showUploadList: true,
-  listType: 'text', // or pictrue
-  className: '',
-  disabled: false,
-  supportServerRender: true
-};
 exports["default"] = Upload;

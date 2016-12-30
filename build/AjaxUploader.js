@@ -37,7 +37,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var propTypes = {
   component: _react.PropTypes.string,
   style: _react.PropTypes.object,
-  prefixCls: _react.PropTypes.string,
+  clsPrefix: _react.PropTypes.string,
   className: _react.PropTypes.string,
   multiple: _react.PropTypes.bool,
   disabled: _react.PropTypes.bool,
@@ -226,7 +226,7 @@ var AjaxUploader = function (_Component) {
 
     var _props = this.props,
         Tag = _props.component,
-        prefixCls = _props.prefixCls,
+        clsPrefix = _props.clsPrefix,
         className = _props.className,
         disabled = _props.disabled,
         style = _props.style,
@@ -234,7 +234,7 @@ var AjaxUploader = function (_Component) {
         accept = _props.accept,
         children = _props.children;
 
-    var cls = (0, _classnames2["default"])((_classNames = {}, _defineProperty(_classNames, prefixCls, true), _defineProperty(_classNames, prefixCls + '-disabled', disabled), _defineProperty(_classNames, className, className), _classNames));
+    var cls = (0, _classnames2["default"])((_classNames = {}, _defineProperty(_classNames, clsPrefix, true), _defineProperty(_classNames, clsPrefix + '-disabled', disabled), _defineProperty(_classNames, className, className), _classNames));
     var events = disabled ? {} : {
       onClick: this.onClick,
       onKeyDown: this.onKeyDown,

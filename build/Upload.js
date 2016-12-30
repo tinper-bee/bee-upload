@@ -33,7 +33,7 @@ function empty() {}
 var propTypes = {
   component: _react.PropTypes.string,
   style: _react.PropTypes.object,
-  prefixCls: _react.PropTypes.string,
+  clsPrefix: _react.PropTypes.string,
   action: _react.PropTypes.string,
   name: _react.PropTypes.string,
   multipart: _react.PropTypes.bool,
@@ -54,7 +54,7 @@ var propTypes = {
 };
 var defaultProps = {
   component: 'span',
-  prefixCls: 'u-upload',
+  clsPrefix: 'u-upload',
   data: {},
   headers: {},
   name: 'file',

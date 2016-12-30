@@ -51,7 +51,7 @@ var propTypes = {
   component: _react.PropTypes.string,
   style: _react.PropTypes.object,
   disabled: _react.PropTypes.bool,
-  prefixCls: _react.PropTypes.string,
+  clsPrefix: _react.PropTypes.string,
   className: _react.PropTypes.string,
   accept: _react.PropTypes.string,
   onStart: _react.PropTypes.func,
@@ -288,14 +288,14 @@ var IframeUploader = function (_Component) {
         Tag = _props.component,
         disabled = _props.disabled,
         className = _props.className,
-        prefixCls = _props.prefixCls,
+        clsPrefix = _props.clsPrefix,
         children = _props.children,
         style = _props.style;
 
     var iframeStyle = _extends({}, IFRAME_STYLE, {
       display: this.state.uploading || disabled ? 'none' : ''
     });
-    var cls = (0, _classnames2["default"])((_classNames = {}, _defineProperty(_classNames, prefixCls, true), _defineProperty(_classNames, prefixCls + '-disabled', disabled), _defineProperty(_classNames, className, className), _classNames));
+    var cls = (0, _classnames2["default"])((_classNames = {}, _defineProperty(_classNames, clsPrefix, true), _defineProperty(_classNames, clsPrefix + '-disabled', disabled), _defineProperty(_classNames, className, className), _classNames));
     return _react2["default"].createElement(
       Tag,
       {

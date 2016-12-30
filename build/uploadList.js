@@ -24,8 +24,6 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _interface = require('./interface');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -38,6 +36,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
+//import { UploadListProps } from './interface';
+
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
 var previewFile = function previewFile(file, callback) {
   var reader = new FileReader();
@@ -47,8 +47,26 @@ var previewFile = function previewFile(file, callback) {
   reader.readAsDataURL(file);
 };
 
-var UploadList = function (_React$Component) {
-  _inherits(UploadList, _React$Component);
+var propTypes = {
+  listType: _react.PropTypes.oneOf(['text', 'picture', 'picture-card']),
+  onPreview: _react.PropTypes.func,
+  onRemove: _react.PropTypes.func,
+  items: _react.PropTypes.array,
+  progressAttr: _react.PropTypes.object,
+  clsPrefix: _react.PropTypes.string
+};
+
+var defaultProps = {
+  listType: 'text', // or picture
+  progressAttr: {
+    strokeWidth: 3,
+    showInfo: false
+  },
+  clsPrefix: 'u-upload'
+};
+
+var UploadList = function (_Component) {
+  _inherits(UploadList, _Component);
 
   function UploadList() {
     var _temp, _this, _ret;
@@ -59,7 +77,7 @@ var UploadList = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.handleClose = function (file) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.handleClose = function (file) {
       var onRemove = _this.props.onRemove;
       if (onRemove) {
         onRemove(file);
@@ -104,7 +122,7 @@ var UploadList = function (_React$Component) {
         _classNames2;
 
     var _props = this.props,
-        prefixCls = _props.prefixCls,
+        clsPrefix = _props.clsPrefix,
         _props$items = _props.items,
         items = _props$items === undefined ? [] : _props$items,
         listType = _props.listType;
@@ -120,17 +138,17 @@ var UploadList = function (_React$Component) {
           if (listType === 'picture-card') {
             icon = _react2["default"].createElement(
               'div',
-              { className: prefixCls + '-list-item-uploading-text' },
+              { className: clsPrefix + '-list-item-uploading-text' },
               '\u6587\u4EF6\u4E0A\u4F20\u4E2D'
             );
           } else {
-            icon = _react2["default"].createElement(_beeIcon2["default"], { className: prefixCls + '-list-item-thumbnail', type: 'picture' });
+            icon = _react2["default"].createElement(_beeIcon2["default"], { className: clsPrefix + '-list-item-thumbnail', type: 'picture' });
           }
         } else {
           icon = _react2["default"].createElement(
             'a',
             {
-              className: prefixCls + '-list-item-thumbnail',
+              className: clsPrefix + '-list-item-thumbnail',
               onClick: function onClick(e) {
                 return _this3.handlePreview(file, e);
               },
@@ -146,14 +164,14 @@ var UploadList = function (_React$Component) {
       if (file.status === 'uploading') {
         progress = _react2["default"].createElement(_beeProgressBar2["default"], { colors: 'success', size: 'sm', now: file.percent });
       }
-      var infoUploadingClass = (0, _classnames2["default"])((_classNames = {}, _defineProperty(_classNames, prefixCls + '-list-item', true), _defineProperty(_classNames, prefixCls + '-list-item-' + file.status, true), _classNames));
+      var infoUploadingClass = (0, _classnames2["default"])((_classNames = {}, _defineProperty(_classNames, clsPrefix + '-list-item', true), _defineProperty(_classNames, clsPrefix + '-list-item-' + file.status, true), _classNames));
       var preview = file.url ? _react2["default"].createElement(
         'a',
         {
           href: file.url,
           target: '_blank',
           rel: 'noopener noreferrer',
-          className: prefixCls + '-list-item-name',
+          className: clsPrefix + '-list-item-name',
           onClick: function onClick(e) {
             return _this3.handlePreview(file, e);
           }
@@ -162,7 +180,7 @@ var UploadList = function (_React$Component) {
       ) : _react2["default"].createElement(
         'span',
         {
-          className: prefixCls + '-list-item-name',
+          className: clsPrefix + '-list-item-name',
           onClick: function onClick(e) {
             return _this3.handlePreview(file, e);
           }
@@ -201,7 +219,7 @@ var UploadList = function (_React$Component) {
         { className: infoUploadingClass, key: file.uid },
         _react2["default"].createElement(
           'div',
-          { className: prefixCls + '-list-item-info' },
+          { className: clsPrefix + '-list-item-info' },
           icon,
           preview,
           actions
@@ -209,11 +227,11 @@ var UploadList = function (_React$Component) {
         progress
       );
     });
-    var listClassNames = (0, _classnames2["default"])((_classNames2 = {}, _defineProperty(_classNames2, prefixCls + '-list', true), _defineProperty(_classNames2, prefixCls + '-list-' + listType, true), _classNames2));
+    var listClassNames = (0, _classnames2["default"])((_classNames2 = {}, _defineProperty(_classNames2, clsPrefix + '-list', true), _defineProperty(_classNames2, clsPrefix + '-list-' + listType, true), _classNames2));
     return _react2["default"].createElement(
       _beeAnimate2["default"],
       {
-        transitionName: prefixCls + '-margin-top',
+        transitionName: clsPrefix + '-margin-top',
         component: 'div',
         className: listClassNames
       },
@@ -222,15 +240,9 @@ var UploadList = function (_React$Component) {
   };
 
   return UploadList;
-}(_react2["default"].Component);
+}(_react.Component);
 
-UploadList.defaultProps = {
-  listType: 'text', // or picture
-  progressAttr: {
-    strokeWidth: 3,
-    showInfo: false
-  },
-  prefixCls: 'u-upload'
-};
+UploadList.propTypes = propTypes;
+UploadList.defaultProps = defaultProps;
 exports["default"] = UploadList;
 module.exports = exports['default'];
