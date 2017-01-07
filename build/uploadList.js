@@ -131,7 +131,7 @@ var UploadList = function (_Component) {
       var _classNames;
 
       var progress = void 0;
-      var icon = _react2["default"].createElement(_beeIcon2["default"], { type: 'paper-clip-outline' });
+      var icon = _react2["default"].createElement(_beeIcon2["default"], { type: 'uf-link' });
 
       if (listType === 'picture' || listType === 'picture-card') {
         if (file.status === 'uploading' || !file.thumbUrl && !file.url) {
@@ -207,10 +207,10 @@ var UploadList = function (_Component) {
           },
           _react2["default"].createElement(_beeIcon2["default"], { type: 'eye-open' })
         ),
-        _react2["default"].createElement(_beeIcon2["default"], { type: 'remove-symbol', title: 'Remove file', onClick: function onClick() {
+        _react2["default"].createElement(_beeIcon2["default"], { type: 'uf-close', title: 'Remove file', onClick: function onClick() {
             return _this3.handleClose(file);
           } })
-      ) : _react2["default"].createElement(_beeIcon2["default"], { type: 'remove-symbol', title: 'Remove file', onClick: function onClick() {
+      ) : _react2["default"].createElement(_beeIcon2["default"], { type: 'uf-close', title: 'Remove file', onClick: function onClick() {
           return _this3.handleClose(file);
         } });
 
