@@ -27,14 +27,14 @@ class Demo4 extends Component {
       <div>
         <Upload {...demo4props}>
           <Button type="primary" shape="border">
-            <Icon type="upload" /> upload
+            <Icon type="uf-upload" /> upload
           </Button>
         </Upload>
         <br />
         <br />
         <Upload {...props} className="upload-list-inline">
           <Button type="primary" shape="border">
-            <Icon type="upload" /> upload
+            <Icon type="uf-upload" /> upload
           </Button>
         </Upload>
       </div>

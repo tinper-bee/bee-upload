@@ -78,7 +78,7 @@ class UploadList extends Component{
     const { clsPrefix, items = [], listType } = this.props;
     const list = items.map(file => {
       let progress;
-      let icon = <Icon type="paper-clip-outline" />;
+      let icon = <Icon type="uf-link" />;
 
       if (listType === 'picture' || listType === 'picture-card') {
         if (file.status === 'uploading' || (!file.thumbUrl && !file.url)) {
@@ -144,10 +144,10 @@ class UploadList extends Component{
           >
             <Icon type="eye-open" />
           </a>
-          <Icon type="remove-symbol" title="Remove file" onClick={() => this.handleClose(file)} />
+          <Icon type="uf-close" title="Remove file" onClick={() => this.handleClose(file)} />
         </span>
       ) : (
-        <Icon type="remove-symbol" title="Remove file" onClick={() => this.handleClose(file)} />
+        <Icon type="uf-close" title="Remove file" onClick={() => this.handleClose(file)} />
       );
 
       return (

@@ -49,7 +49,7 @@ class Demo5 extends Component{
     return (
       <Upload {...props} fileList={this.state.fileList}>
         <Button colors="primary" shape="border">
-          <Icon type="upload" /> upload
+          <Icon type="uf-upload" /> upload
         </Button>
       </Upload>
     );

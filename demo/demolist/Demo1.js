@@ -25,7 +25,7 @@ class Demo1 extends Component {
 		return( 
 			<Upload {...props}>
         <Button shape="border">
-          <Icon type="upload" /> Click to Upload
+          <Icon type="uf-upload" /> Click to Upload
         </Button>
       </Upload>
 		)

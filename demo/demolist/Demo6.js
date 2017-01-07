@@ -32,7 +32,7 @@ class Demo6 extends Component {
       <div style={{ marginTop: 16, height: 180 }}>
         <Dragger {...demo6props}>
           <p className="u-upload-drag-icon">
-            <Icon type="inbox" className="uf-upload-drag" />
+            <Icon type="inbox" className="uf-upload" />
           </p>
           <p className="u-upload-text">Click or drag file to this area to upload</p>
           <p className="u-upload-hint">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>

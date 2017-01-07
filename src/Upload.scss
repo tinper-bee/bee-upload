@@ -2,17 +2,30 @@
 @import "../node_modules/tinper-bee-core/scss/minxin-mixins";
 @import "../node_modules/bee-progress-bar/src/ProgressBar";
 
+
 .u-upload .uf{
   text-align:center;
 }
+
+.avatar-uploader {
+    width: 150px;
+    height: 150px;
+    display: block;
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+
+}
 .avatar-uploader-trigger {
+    width: 150px;
+    height: 150px;
     display: table-cell;
     vertical-align: middle;
     font-size: 28px;
     color: #999;
 }
 
-.avatar-uploader, .avatar-uploader-trigger, .avatar {
+.avatar {
     width: 150px;
     height: 150px;
 }
@@ -21,24 +34,6 @@
   display: inline-block;
   width: 200px;
   margin-right: 8px;
-}
-.avatar-uploader,
-.avatar-uploader-trigger,
-.avatar {
-  width: 150px;
-  height: 150px;
-}
-.avatar-uploader {
-  display: block;
-  border: 1px dashed #d9d9d9;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.avatar-uploader-trigger {
-  display: table-cell;
-  vertical-align: middle;
-  font-size: 28px;
-  color: #999;
 }
 
 .u-upload {
@@ -138,7 +133,7 @@
 .u-upload-list{
     overflow: hidden;
     a {
-        color: #108ee9;
+        color: $upload-list-color;
         background: transparent;
         text-decoration: none;
         outline: none;
@@ -153,9 +148,9 @@
     }
     .u-upload-list-item:hover{
         .u-upload-list-item-info {
-            background-color: #e7f4fd;
+            background-color: $upload-list-hover-bg;
         }
-        .uf-removesymbol {
+        .uf {
             opacity: 1;
         }
     } 
@@ -170,7 +165,7 @@
             font-size: 12px;
             color: #999;
         }
-        .uf-removesymbol {
+        .uf-close {
             display: inline-block;
             font-size: 12px;
             font-size: 10px \9;
@@ -190,14 +185,14 @@
             -webkit-filter: none;
             filter: none;
         }
-        .uf-removesymbol:hover {
+        .uf-close:hover {
             color: #666;
         }
     }
     .u-upload-list-item-error .anticon-paper-clip {
-        color: #f50;
+        color: $upload-list-error-color;
     }
-    .u-upload-list-item-error .uf-removesymbol {
+    .u-upload-list-item-error .uf-close {
         opacity: 1;
     }
     .u-upload-list-item-progress {
@@ -247,20 +242,20 @@
         }
     }
     .u-upload-list-item-thumbnail {
-        width: 48px;
-        height: 48px;
+        width: $upload-thumbnail-width;
+        height: $upload-thumbnail-height;
         position: absolute;
         top: 8px;
         left: 8px;
         img {
-            width: 48px;
-            height: 48px;
+            width: $upload-thumbnail-img-width;
+            height: $upload-thumbnail-img-height;
             display: block;
             overflow: hidden;
             border-radius: 2px;
         }
     }
-    .u-upload-list-item-thumbnail.anticon:before {
+    .u-upload-list-item-thumbnail.uf:before {
         line-height: 48px;
         font-size: 24px;
         color: #999;
@@ -283,7 +278,7 @@
         padding-left: 56px;
         margin-top: 0;
     }
-    .uf-removesymbol {
+    .uf-close {
         position: absolute;
         right: 8px;
         top: 8px;
@@ -419,7 +414,7 @@
         margin-top: 0;
         padding-left: 0;
     }
-    .uf-removesymbol {
+    .uf-close {
         position: absolute;
         right: 8px;
         top: 8px;
