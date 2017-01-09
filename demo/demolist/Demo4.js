@@ -10,14 +10,14 @@ const demo4props = {
     uid: -1,
     name: 'xxx.png',
     status: 'done',
-    url: 'http://design.yyuap.com/logos/logox.png',
-    thumbUrl: 'http://design.yyuap.com/logos/logox.png',
+    url: 'http://design.yyuap.com/images/icon1.png',
+    thumbUrl: 'http://design.yyuap.com/images/icon1.png',
   }, {
     uid: -2,
     name: 'yyy.png',
     status: 'done',
-    url: 'http://design.yyuap.com/logos/logox.png',
-    thumbUrl: 'http://design.yyuap.com/logos/logox.png',
+    url: 'http://design.yyuap.com/images/icon1.png',
+    thumbUrl: 'http://design.yyuap.com/images/icon1.png',
   }],
 };
 
