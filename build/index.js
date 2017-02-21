@@ -6,8 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-exports.Dragger = Dragger;
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -408,3 +406,4 @@ Upload.propTypes = propTypes;
 Upload.defaultProps = defaultProps;
 Upload.Dragger = Dragger;
 exports["default"] = Upload;
+module.exports = exports['default'];
