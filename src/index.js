@@ -52,7 +52,7 @@ function genPercentAdd() {
 }
 
 
-export function Dragger(props) {
+function Dragger(props) {
   return <Upload {...props} type="drag" style={{ height: props.height }}/>;
 }
 
