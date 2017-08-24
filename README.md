@@ -101,6 +101,29 @@ import "./node_modules/build/bee-upload.css"
 }
 ```
 
+## IE兼容
+
+IE8/9 Note
+
+下载弹出窗口问题
+
+使用iframe方式上传时,响应response的`content-type`应该是 `text/plain`或者 `text/html.referense`
+
+此外，在iframe模式下，响应的状态应始终为200 OK，否则可能会在IE 8/9中获得Access被拒绝的错误。
+
+域问题
+
+如果页面设置`document.domain`，则服务器应根据`_documentDomain`参数输出`document.domain`。
+
+```
+var ret = '';
+if (postData._documentDomain) {
+  ret += '<script>document.domain="'+postData._documentDomain+'";</script>';
+}
+this.body = ret + '{"url":"xx.jpq"}';
+
+```
+
 #### 开发调试
 
 ```sh
