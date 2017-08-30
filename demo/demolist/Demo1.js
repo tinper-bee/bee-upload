@@ -2,6 +2,13 @@
  * @title 常用按钮Upload
  * @description 通过定义props，来自定义上传文件和服务地址等信息。在onChange方法的参数info，是上传返回的回调参数。常用的是上传的状态。
  */
+
+
+import React, { Component } from 'react';
+import Icon from 'bee-icon';
+import Button from 'bee-button';
+import Upload from '../../src';
+
 const props = {
   name: 'file',
   action: '/upload.do',
@@ -31,3 +38,5 @@ class Demo1 extends Component {
 		)
 	}
 }
+
+export default Demo1;

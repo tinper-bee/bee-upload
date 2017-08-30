@@ -1,36 +1,43 @@
 /**
- * @title 列表`Upload`
- * @description 自定义已上传文件列表。
+ * @title 图片列表`Upload`
+ * @description 图片文件列表以图片的形式展示。关键参数 `listType:picture`。
  */
 
-const demo3props = {
+import React, { Component } from 'react';
+import Icon from 'bee-icon';
+import Button from 'bee-button';
+import Upload from '../../src';
+
+const demo4props = {
   action: '/upload.do',
-  onChange(info) {
-    if (info.file.status !== 'uploading') {
-      console.log(info.file);
-      console.log(info.fileList);
-    }
-  },
+  listType: 'picture',
   defaultFileList: [{
     uid: -1,
     name: 'xxx.png',
     status: 'done',
-    url: 'http://www.baidu.com/xxx.png',
+    url: 'http://design.yyuap.com/images/icon1.png',
+    thumbUrl: 'http://design.yyuap.com/images/icon1.png',
   }, {
     uid: -2,
     name: 'yyy.png',
     status: 'done',
-    url: 'http://www.baidu.com/yyy.png',
+    url: 'http://design.yyuap.com/images/icon1.png',
+    thumbUrl: 'http://design.yyuap.com/images/icon1.png',
   }],
 };
+
 class Demo3 extends Component {
   render(){
     return( 
-      <Upload {...demo3props}>
-        <Button type="primary" shape="border">
-          <Icon type="uf-upload" /> Click to Upload
-        </Button>
-      </Upload>
+      <div>
+        <Upload {...demo4props}>
+          <Button type="primary" shape="border">
+            <Icon type="uf-upload" /> upload
+          </Button>
+        </Upload>
+      </div>
     )
   }
 }
+
+export default Demo3;
