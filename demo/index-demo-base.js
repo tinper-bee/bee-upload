@@ -42,7 +42,8 @@ class Demo extends Component {
             <Col md={12}>
                 <h3>{ title }</h3>
                 <p>{ desc }</p>
-                <Panel collapsible expanded={ this.state.open } colors='bordered' header={ example } footer={footer} footerStyle = {{padding: 0,borderColor: "transparent"}} >
+                <div style={{padding:20}}> { example }</div>
+                <Panel collapsible expanded={ this.state.open } colors='bordered' footer={footer} footerStyle = {{padding: 0,borderColor: "transparent"}} >
                     <pre><code className="hljs javascript">{ code }</code></pre>
                 </Panel>
             </Col>
