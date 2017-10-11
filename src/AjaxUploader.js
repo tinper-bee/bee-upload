@@ -1,9 +1,10 @@
 /* eslint react/no-is-mounted:0*/
 
-import React, { PropTypes,Component } from 'react';
+import React, {Component } from 'react';
 import classNames from 'classnames';
 import defaultRequest from './request';
 import getUid from './uid';
+import PropTypes from 'prop-types';
 
 const propTypes = {
     component: PropTypes.string,
@@ -103,6 +104,7 @@ class AjaxUploader extends Component{
     }
 
     const before = props.beforeUpload(file, fileList);
+    debugger;
     if (before && before.then) {
       before.then((processedFile) => {
         const processedFileType = Object.prototype.toString.call(processedFile);

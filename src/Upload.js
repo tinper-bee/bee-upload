@@ -1,6 +1,7 @@
-import React, { PropTypes , Component } from 'react';
+import React, { Component } from 'react';
 import AjaxUpload from './AjaxUploader';
 import IframeUpload from './IframeUploader';
+import PropTypes from 'prop-types';
 
 function empty() {
 }

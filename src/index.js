@@ -1,9 +1,10 @@
-import React,{PropTypes,Component} from 'react';
+import React,{Component} from 'react';
 import RcUpload from './Upload';
 import UploadList from './uploadList';
 import getFileItem from './getFileItem';
 import classNames from 'classnames';
 import assign from 'object-assign';
+import PropTypes from 'prop-types';
 //import { UploadProps } from './interface';
 
 function T() {

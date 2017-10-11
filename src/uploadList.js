@@ -1,8 +1,9 @@
-import React,{Component,PropTypes} from 'react';
+import React,{Component} from 'react';
 import Animate from 'bee-animate';
 import Icon from 'bee-icon';
 import ProgressBar from 'bee-progress-bar';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 //import { UploadListProps } from './interface';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL

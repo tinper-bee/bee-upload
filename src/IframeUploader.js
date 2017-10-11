@@ -1,8 +1,9 @@
-import React, { PropTypes,Component } from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import getUid from './uid';
 import warning from 'warning';
+import PropTypes from 'prop-types';
 
 const IFRAME_STYLE = {
   position: 'absolute',
