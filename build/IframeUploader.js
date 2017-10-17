@@ -26,6 +26,10 @@ var _warning = require('warning');
 
 var _warning2 = _interopRequireDefault(_warning);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -48,18 +52,18 @@ var IFRAME_STYLE = {
 };
 
 var propTypes = {
-  component: _react.PropTypes.string,
-  style: _react.PropTypes.object,
-  disabled: _react.PropTypes.bool,
-  clsPrefix: _react.PropTypes.string,
-  className: _react.PropTypes.string,
-  accept: _react.PropTypes.string,
-  onStart: _react.PropTypes.func,
-  multiple: _react.PropTypes.bool,
-  children: _react.PropTypes.any,
-  data: _react.PropTypes.oneOfType([_react.PropTypes.object, _react.PropTypes.func]),
-  action: _react.PropTypes.string,
-  name: _react.PropTypes.string
+  component: _propTypes2["default"].string,
+  style: _propTypes2["default"].object,
+  disabled: _propTypes2["default"].bool,
+  clsPrefix: _propTypes2["default"].string,
+  className: _propTypes2["default"].string,
+  accept: _propTypes2["default"].string,
+  onStart: _propTypes2["default"].func,
+  multiple: _propTypes2["default"].bool,
+  children: _propTypes2["default"].any,
+  data: _propTypes2["default"].oneOfType([_propTypes2["default"].object, _propTypes2["default"].func]),
+  action: _propTypes2["default"].string,
+  name: _propTypes2["default"].string
 };
 // diferent from AjaxUpload, can only upload on at one time, serial seriously
 

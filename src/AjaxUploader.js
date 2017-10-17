@@ -104,7 +104,6 @@ class AjaxUploader extends Component{
     }
 
     const before = props.beforeUpload(file, fileList);
-    debugger;
     if (before && before.then) {
       before.then((processedFile) => {
         const processedFileType = Object.prototype.toString.call(processedFile);

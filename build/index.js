@@ -30,6 +30,10 @@ var _objectAssign = require('object-assign');
 
 var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -94,44 +98,44 @@ function Dragger(props) {
 }
 
 var File = {
-  uid: _react.PropTypes.number,
-  size: _react.PropTypes.number,
-  name: _react.PropTypes.string,
-  lastModifiedDate: _react.PropTypes.date,
-  url: _react.PropTypes.string,
-  status: _react.PropTypes.oneOf(['error', 'success', 'done', 'uploading', 'removed']),
-  percent: _react.PropTypes.number,
-  thumbUrl: _react.PropTypes.string,
+  uid: _propTypes2["default"].number,
+  size: _propTypes2["default"].number,
+  name: _propTypes2["default"].string,
+  lastModifiedDate: _propTypes2["default"].date,
+  url: _propTypes2["default"].string,
+  status: _propTypes2["default"].oneOf(['error', 'success', 'done', 'uploading', 'removed']),
+  percent: _propTypes2["default"].number,
+  thumbUrl: _propTypes2["default"].string,
   originFileObj: File
 };
 
 var UploadChangeParam = {
   file: File,
-  fileList: _react.PropTypes.array,
-  event: _react.PropTypes.object
+  fileList: _propTypes2["default"].array,
+  event: _propTypes2["default"].object
 };
 
 var propTypes = {
-  type: _react.PropTypes.oneOf(['drag', 'select']),
-  name: _react.PropTypes.string,
-  defaultFileList: _react.PropTypes.array,
-  fileList: _react.PropTypes.array,
-  action: _react.PropTypes.string,
-  data: _react.PropTypes.oneOfType([_react.PropTypes.object, _react.PropTypes.func]),
-  headers: _react.PropTypes.oneOfType([_react.PropTypes.object, _react.PropTypes.string]),
-  showUploadList: _react.PropTypes.bool,
-  multiple: _react.PropTypes.bool,
-  accept: _react.PropTypes.string,
-  beforeUpload: _react.PropTypes.func,
-  onChange: _react.PropTypes.func,
-  listType: _react.PropTypes.oneOf(['text', 'picture', 'picture-card']),
-  className: _react.PropTypes.string,
-  onPreview: _react.PropTypes.func,
-  onRemove: _react.PropTypes.func,
-  supportServerRender: _react.PropTypes.bool,
-  style: _react.PropTypes.object,
-  disabled: _react.PropTypes.bool,
-  clsPrefix: _react.PropTypes.string
+  type: _propTypes2["default"].oneOf(['drag', 'select']),
+  name: _propTypes2["default"].string,
+  defaultFileList: _propTypes2["default"].array,
+  fileList: _propTypes2["default"].array,
+  action: _propTypes2["default"].string,
+  data: _propTypes2["default"].oneOfType([_propTypes2["default"].object, _propTypes2["default"].func]),
+  headers: _propTypes2["default"].oneOfType([_propTypes2["default"].object, _propTypes2["default"].string]),
+  showUploadList: _propTypes2["default"].bool,
+  multiple: _propTypes2["default"].bool,
+  accept: _propTypes2["default"].string,
+  beforeUpload: _propTypes2["default"].func,
+  onChange: _propTypes2["default"].func,
+  listType: _propTypes2["default"].oneOf(['text', 'picture', 'picture-card']),
+  className: _propTypes2["default"].string,
+  onPreview: _propTypes2["default"].func,
+  onRemove: _propTypes2["default"].func,
+  supportServerRender: _propTypes2["default"].bool,
+  style: _propTypes2["default"].object,
+  disabled: _propTypes2["default"].bool,
+  clsPrefix: _propTypes2["default"].string
 };
 
 var defaultProps = {

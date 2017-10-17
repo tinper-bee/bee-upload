@@ -18,6 +18,10 @@ var _IframeUploader = require('./IframeUploader');
 
 var _IframeUploader2 = _interopRequireDefault(_IframeUploader);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -31,26 +35,26 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function empty() {}
 
 var propTypes = {
-  component: _react.PropTypes.string,
-  style: _react.PropTypes.object,
-  clsPrefix: _react.PropTypes.string,
-  action: _react.PropTypes.string,
-  name: _react.PropTypes.string,
-  multipart: _react.PropTypes.bool,
-  onError: _react.PropTypes.func,
-  onSuccess: _react.PropTypes.func,
-  onProgress: _react.PropTypes.func,
-  onStart: _react.PropTypes.func,
-  data: _react.PropTypes.oneOfType([_react.PropTypes.object, _react.PropTypes.func]),
-  headers: _react.PropTypes.object,
-  accept: _react.PropTypes.string,
-  multiple: _react.PropTypes.bool,
-  disabled: _react.PropTypes.bool,
-  beforeUpload: _react.PropTypes.func,
-  customRequest: _react.PropTypes.func,
-  onReady: _react.PropTypes.func,
-  withCredentials: _react.PropTypes.bool,
-  supportServerRender: _react.PropTypes.bool
+  component: _propTypes2["default"].string,
+  style: _propTypes2["default"].object,
+  clsPrefix: _propTypes2["default"].string,
+  action: _propTypes2["default"].string,
+  name: _propTypes2["default"].string,
+  multipart: _propTypes2["default"].bool,
+  onError: _propTypes2["default"].func,
+  onSuccess: _propTypes2["default"].func,
+  onProgress: _propTypes2["default"].func,
+  onStart: _propTypes2["default"].func,
+  data: _propTypes2["default"].oneOfType([_propTypes2["default"].object, _propTypes2["default"].func]),
+  headers: _propTypes2["default"].object,
+  accept: _propTypes2["default"].string,
+  multiple: _propTypes2["default"].bool,
+  disabled: _propTypes2["default"].bool,
+  beforeUpload: _propTypes2["default"].func,
+  customRequest: _propTypes2["default"].func,
+  onReady: _propTypes2["default"].func,
+  withCredentials: _propTypes2["default"].bool,
+  supportServerRender: _propTypes2["default"].bool
 };
 var defaultProps = {
   component: 'span',

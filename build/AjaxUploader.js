@@ -22,6 +22,10 @@ var _uid = require('./uid');
 
 var _uid2 = _interopRequireDefault(_uid);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -35,20 +39,20 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /* eslint react/no-is-mounted:0*/
 
 var propTypes = {
-  component: _react.PropTypes.string,
-  style: _react.PropTypes.object,
-  clsPrefix: _react.PropTypes.string,
-  className: _react.PropTypes.string,
-  multiple: _react.PropTypes.bool,
-  disabled: _react.PropTypes.bool,
-  accept: _react.PropTypes.string,
-  children: _react.PropTypes.any,
-  onStart: _react.PropTypes.func,
-  data: _react.PropTypes.oneOfType([_react.PropTypes.object, _react.PropTypes.func]),
-  headers: _react.PropTypes.object,
-  beforeUpload: _react.PropTypes.func,
-  customRequest: _react.PropTypes.func,
-  withCredentials: _react.PropTypes.bool
+  component: _propTypes2["default"].string,
+  style: _propTypes2["default"].object,
+  clsPrefix: _propTypes2["default"].string,
+  className: _propTypes2["default"].string,
+  multiple: _propTypes2["default"].bool,
+  disabled: _propTypes2["default"].bool,
+  accept: _propTypes2["default"].string,
+  children: _propTypes2["default"].any,
+  onStart: _propTypes2["default"].func,
+  data: _propTypes2["default"].oneOfType([_propTypes2["default"].object, _propTypes2["default"].func]),
+  headers: _propTypes2["default"].object,
+  beforeUpload: _propTypes2["default"].func,
+  customRequest: _propTypes2["default"].func,
+  withCredentials: _propTypes2["default"].bool
 };
 
 var AjaxUploader = function (_Component) {
