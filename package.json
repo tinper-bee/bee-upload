@@ -20,7 +20,10 @@
   "license": "MIT",
   "main": "./build/index",
   "config": {
-    "port": 8000
+    "port": 8000,
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "scripts": {
     "dev": "bee-tools run start",
@@ -33,10 +36,9 @@
     "coveralls": "bee-tools run coverage"
   },
   "dependencies": {
-    "bee-animate": "latest",
-    "bee-button": "latest",
-    "bee-icon": "latest",
-    "bee-progress-bar": "latest",
+    "bee-animate": "^1.0.0",
+    "bee-icon": "^1.0.3",
+    "bee-progress-bar": "^1.0.2",
     "classnames": "^2.2.5",
     "tinper-bee-core": "latest",
     "warning": "2.x"
@@ -47,14 +49,16 @@
     "prop-types": "15.6.0"
   },
   "devDependencies": {
+    "bee-button": "latest",
+    "bee-layout": "latest",
+    "bee-panel": "latest",
     "chai": "^3.5.0",
+    "console-polyfill": "~0.2.1",
+    "cz-conventional-changelog": "^2.1.0",
     "enzyme": "^2.4.1",
+    "es5-shim": "~4.1.10",
     "react": "15.3.2",
     "react-addons-test-utils": "15.3.2",
-    "react-dom": "15.3.2",
-    "console-polyfill": "~0.2.1",
-    "es5-shim": "~4.1.10",
-    "bee-panel": "latest",
-    "bee-layout": "latest"
+    "react-dom": "15.3.2"
   }
 }
