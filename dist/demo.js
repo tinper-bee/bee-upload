@@ -133,8 +133,13 @@
 	                desc
 	            ),
 	            _react2['default'].createElement(
+	                'div',
+	                { style: { padding: '10px 15px', backgroundColor: '#fff' } },
+	                header
+	            ),
+	            _react2['default'].createElement(
 	                _beePanel.Panel,
-	                { collapsible: true, headerContent: true, expanded: this.state.open, colors: 'bordered', header: header,
+	                { collapsible: true, headerContent: true, expanded: this.state.open, colors: 'bordered',
 	                    footerStyle: { padding: 0 } },
 	                _react2['default'].createElement(
 	                    'pre',
