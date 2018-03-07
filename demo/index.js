@@ -44,7 +44,7 @@ class Demo extends Component {
             <Col md={12}>
                 <h3>{title}</h3>
                 <p>{desc}</p>
-                <div style={{ padding: '10px 15px', backgroundColor: '#fff'}}>
+                <div style={{ padding: '10px 15px', backgroundColor: '#fff', borderTop: '1px solid #e9e9e9', borderLeft: '1px solid #e9e9e9', borderRight: '1px solid #e9e9e9', borderRadius: 4}}>
                     { header }
                 </div>
                 <Panel collapsible headerContent expanded={this.state.open} colors='bordered'
