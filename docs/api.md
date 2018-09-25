@@ -14,6 +14,7 @@
 |fileList|已上传的文件列表,多用于onChange事件里|array|-|
 |action|上传的服务器地址|array|-|
 |data|上传参数或者函数	|Object or function|-|
+|size|上传文件的大小限制单位是byte|number|1024000|
 |headers|设置请求的头部信息 兼容ie10以上|object|-|
 |showUploadList|是否显示上传列表|bool|true|
 |multiple|是否支持多文件上传 兼容ie10以上|bool|false|
