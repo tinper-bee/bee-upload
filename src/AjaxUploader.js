@@ -1,5 +1,7 @@
-/* eslint react/no-is-mounted:0*/
-
+/**
+* This source code is quoted from rc-upload.
+* homepage: https://github.com/react-component/upload
+*/
 import React, {Component } from 'react';
 import classNames from 'classnames';
 import defaultRequest from './request';

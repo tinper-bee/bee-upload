@@ -1,3 +1,7 @@
+/**
+* This source code is quoted from rc-upload.
+* homepage: https://github.com/react-component/upload
+*/
 function getError(option, xhr) {
   const msg = `cannot post ${option.action} ${xhr.status}'`;
   const err = new Error(msg);

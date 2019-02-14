@@ -1,3 +1,7 @@
+/**
+* This source code is quoted from rc-upload.
+* homepage: https://github.com/react-component/upload
+*/
 import React, { Component } from 'react';
 import AjaxUpload from './AjaxUploader';
 import IframeUpload from './IframeUploader';
