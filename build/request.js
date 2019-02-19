@@ -4,6 +4,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = upload;
+/**
+* This source code is quoted from rc-upload.
+* homepage: https://github.com/react-component/upload
+*/
 function getError(option, xhr) {
   var msg = 'cannot post ' + option.action + ' ' + xhr.status + '\'';
   var err = new Error(msg);
