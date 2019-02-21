@@ -1,5 +1,11 @@
-<a name="1.0.0"></a>
-# 1.0.0 (2018-01-21)
+<a name="1.1.0"></a>
+# 1.1.0 (2019-02-21)
+
+
+### Bug Fixes
+
+* 修改示例 ([3415050](https://github.com/tinper-bee/upload/commit/3415050))
+* 示例点击午饭因 ([a9564b0](https://github.com/tinper-bee/upload/commit/a9564b0))
 
 
 ### build
