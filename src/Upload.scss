@@ -90,7 +90,7 @@
         p.u-upload-drag-icon .uf {
             font-size: 60px;
             margin-top: -5px;
-            color: #40a5ed;
+            color: $brand-primary;
         }
         p.u-upload-text {
             font-size: 14px;
@@ -116,7 +116,7 @@
         cursor: not-allowed;
     }
     &.u-upload-drag:not(.u-upload-disabled):hover {
-        border-color: #40a5ed;
+        border-color: $brand-primary;
     }
     &.u-upload-drag:hover .uf-plus-black-symbol {
         color: #999;
