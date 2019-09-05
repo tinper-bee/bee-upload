@@ -2,6 +2,8 @@
 /*  Navlayout  */
 /* FormGroup */
 /*  Navlayout  */
+@import url(../node_modules/bee-icon/build/Icon.css);
+@import url(../node_modules/bee-modal/build/Modal.css);
 .u-progress {
   overflow: hidden;
   height: 20px;
@@ -33,7 +35,7 @@
 .u-progress.xs {
   height: 5px;
   width: 170px;
-  margin-left: 10px; }
+  margin-left: 32px; }
   .u-progress.xs .u-progress-label {
     left: 0;
     color: #000;
@@ -97,13 +99,15 @@
   pointer-events: none; }
 
 #nprogress .bar {
-  background: #29d;
   position: fixed;
   z-index: 1031;
   top: 0;
   left: 0;
   width: 100%;
-  height: 2px; }
+  border-width: 3px 0 0;
+  border-top-style: solid;
+  -o-border-image: linear-gradient(139deg, #fb8817, #ff4b01, #c12127, #e02aff) 3;
+  border-image: linear-gradient(139deg, #fb8817, #ff4b01, #c12127, #e02aff) 3; }
 
 /* Fancy blur effect */
 #nprogress .peg {
@@ -287,13 +291,10 @@
       margin-right: 4px;
       font-size: 12px;
       color: #999; }
-    .u-upload-list .u-upload-list-item-info .uf-close {
+    .u-upload-list .u-upload-list-item-info .uf-del {
       display: inline-block;
       font-size: 12px;
       font-size: 10px \9;
-      -webkit-transform: scale(0.83333) rotate(0deg);
-      -ms-transform: scale(0.83333) rotate(0deg);
-      transform: scale(0.83333) rotate(0deg);
       /* IE6-IE8 */
       -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
       zoom: 1;
@@ -302,15 +303,30 @@
       opacity: 0;
       cursor: pointer;
       float: right;
-      color: #999;
+      color: gainsboro;
       line-height: 22px;
       -webkit-filter: none;
-      filter: none; }
-    .u-upload-list .u-upload-list-item-info .uf-close:hover {
-      color: #666; }
+      filter: none;
+      z-index: 2; }
+    .u-upload-list .u-upload-list-item-info .uf-eye-o {
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: gainsboro;
+      z-index: 2;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
+      zoom: 1;
+      -webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      opacity: 0; }
+    .u-upload-list .u-upload-list-item-info .uf-del:hover {
+      color: white; }
+    .u-upload-list .u-upload-list-item-info .uf-eye-o:hover {
+      color: white; }
   .u-upload-list .u-upload-list-item-error .anticon-paper-clip {
     color: #f50; }
-  .u-upload-list .u-upload-list-item-error .uf-close {
+  .u-upload-list .u-upload-list-item-error .uf-del {
     opacity: 1; }
   .u-upload-list .u-upload-list-item-progress {
     padding: 0 8px 0 20px;
@@ -385,7 +401,7 @@
   padding-left: 56px;
   margin-top: 0; }
 
-.u-upload-list-picture .uf-close {
+.u-upload-list-picture .uf-del {
   position: absolute;
   right: 8px;
   top: 8px;
@@ -494,10 +510,11 @@
     padding-left: 56px;
     margin-top: 0;
     padding-left: 0; }
-  .u-upload-list-picture-card .uf-close {
+  .u-upload-list-picture-card .uf-del {
     position: absolute;
     right: 8px;
-    top: 8px;
+    top: 50%;
+    transform: translateY(-50%);
     line-height: 1; }
   .u-upload-list-picture-card .u-upload-list-item-uploading-text {
     margin-top: 18px;
