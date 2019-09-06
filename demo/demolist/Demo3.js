@@ -6,17 +6,8 @@
 import React, { Component } from 'react';
 import Icon from 'bee-icon';
 import Button from 'bee-button';
-import Modal from 'bee-modal'
 import Upload from '../../src';
 
-function getBase64(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
-  });
-}
 const demo4props = {
   action: '/upload.do',
   listType: 'picture-card',
@@ -36,43 +27,14 @@ const demo4props = {
 };
 
 class Demo3 extends Component {
-  state = {
-    previewVisible: false,
-    previewImage: '',
-  }
-  handleCancel = () => this.setState({ previewVisible: false })
-  handlePreview = file => {
-    var displayPreview = ()=>{
-      this.setState({
-        previewImage: file.url || file.preview,
-        previewVisible: true,
-      });
-    }
-    if (!file.url && !file.preview) {
-      getBase64(file.originFileObj).then(displayPreview)
-    }else {
-      displayPreview()
-    }
-
-
-  }
   render(){
-    const { previewVisible, previewImage } = this.state
     return(
       <div>
-        <Upload {...demo4props} onPreview={this.handlePreview}>
+        <Upload {...demo4props}>
           <Button type="primary" shape="border">
             <Icon type="uf-upload" /> upload
           </Button>
         </Upload>
-        <Modal show={previewVisible} onHide={this.handleCancel}>
-          <Modal.Header closeButton>
-            <Modal.Title>大图预览</Modal.Title>
-          </Modal.Header >
-          <Modal.Body>
-            <img alt="example" style={{ width: '100%' }} src={previewImage} />
-          </Modal.Body>
-        </Modal>
       </div>
     )
   }
