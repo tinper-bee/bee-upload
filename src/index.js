@@ -298,11 +298,11 @@ class Upload extends Component {
   handlePreview = file => {
     var displayPreview = ()=>{
       this.setState({
-        previewImage: file.url || file.preview,
+        previewImage: file.url || file.thumbUrl,
         previewVisible: true,
       });
     }
-    if (!file.url && !file.preview) {
+    if (!file.url && !file.thumbUrl) {
       getBase64(file.originFileObj).then(displayPreview)
     }else {
       displayPreview()

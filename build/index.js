@@ -286,11 +286,11 @@ var Upload = function (_Component) {
     _this.handlePreview = function (file) {
       var displayPreview = function displayPreview() {
         _this.setState({
-          previewImage: file.url || file.preview,
+          previewImage: file.url || file.thumbUrl,
           previewVisible: true
         });
       };
-      if (!file.url && !file.preview) {
+      if (!file.url && !file.thumbUrl) {
         getBase64(file.originFileObj).then(displayPreview);
       } else {
         displayPreview();

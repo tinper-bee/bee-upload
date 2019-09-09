@@ -5,7 +5,6 @@
 
 import React, { Component } from 'react';
 import Icon from 'bee-icon';
-import Button from 'bee-button';
 import Upload from '../../src';
 
 const demo4props = {
@@ -31,9 +30,8 @@ class Demo3 extends Component {
     return(
       <div>
         <Upload {...demo4props}>
-          <Button type="primary" shape="border">
-            <Icon type="uf-upload" /> upload
-          </Button>
+          <Icon type="uf-plus" style={{fontSize:'22px'}}/> 
+          <p>Upload</p>
         </Upload>
       </div>
     )
