@@ -25,22 +25,25 @@ import 'bee-upload/build/Upload.css';
 
 |参数|说明|类型|默认值|
 |:---|:----|:---|:------|
-|name|文件名|string|file|
-|defaultFileList|默认已上传的文件列表|array|-|
+|accept|接受上传的文件类型, 详见 [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)|string|无|
+|name|发到后台的文件参数名|string|'file'|
+|defaultFileList|默认已上传的文件列表|object[]|-|
 |fileList|已上传的文件列表,多用于onChange事件里|array|-|
-|action|上传的服务器地址|array|-|
-|data|上传参数或者函数	|Object or function|-|
+|action|上传的服务器地址|string|(file) => `Promise`|-|
+|data|上传所需参数或返回上传参数的方法|	object|(file) => object|-|
 |size|上传文件的大小限制单位是byte|number|1024000|
 |headers|设置请求的头部信息 兼容ie10以上|object|-|
-|showUploadList|是否显示上传列表|bool|true|
+|showUploadList|是否展示文件列表, 可设为一个对象，用于单独设定 `showPreviewIcon` 和 `showRemoveIcon`|Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean }|true|
 |multiple|是否支持多文件上传 兼容ie10以上|bool|false|
 |accept|设置文件接收类型|string|-|
-|beforeUpload|在上传之前执行的函数，当Promise返回false或者被拒绝，函数被中指。不兼容老ie|func|-|
-|customRequest|覆盖默认的XHR,可定制自己的XMLHttpRequest|func|-|
-|onChange|当上传状态改变之后执行的回调函数|func|-|
+|beforeUpload|上传文件之前的钩子，参数为上传的文件，若返回 `false` 则停止上传。支持返回一个 Promise 对象，Promise 对象 reject 时则停止上传，resolve 时开始上传（ resolve 传入 `File` 或 `Blob` 对象则上传 resolve 传入对象）。注意：IE9 不支持该方法。|(file, fileList) => `boolean | Promise`|-|
+|customRequest|通过覆盖默认的上传行为，可以自定义自己的上传实现|Function|-|
+|onChange|当上传状态改变之后执行的回调函数|Function|-|
 |listType|内置的样式，支持text和picture|string|'text'|
-|onRemove|当删除按钮点击后触发的回调函数|func|-|
-|supportServerRender|当服务器正在渲染时，是否需要打开|bool|false|
+|onRemove|点击移除文件时的回调，返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除。|Function(file): boolean | Promise|-|
+|supportServerRender|服务端渲染时需要打开这个|boolean|false|
+|disabled|是否禁用，设置为 true 后前端禁止删除已上传文件|boolean|false|
+|withCredentials|上传请求时是否携带 cookie|boolean|false|
 
 ### onChange
 

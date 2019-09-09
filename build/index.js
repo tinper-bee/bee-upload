@@ -173,6 +173,13 @@ var defaultProps = {
 var Upload = function (_Component) {
   _inherits(Upload, _Component);
 
+  // recentUploadStatus: boolean | PromiseLike<any>;
+  // progressTimer: any;
+  // refs: {
+  //   [key: string]: any;
+  //   upload: any;
+  // };
+
   function Upload(props) {
     _classCallCheck(this, Upload);
 
@@ -370,6 +377,8 @@ var Upload = function (_Component) {
         disabled = _props.disabled,
         children = _props.children,
         className = _props.className;
+    var showRemoveIcon = showUploadList.showRemoveIcon,
+        showPreviewIcon = showUploadList.showPreviewIcon;
     var _state = this.state,
         previewVisible = _state.previewVisible,
         previewImage = _state.previewImage;
@@ -387,7 +396,9 @@ var Upload = function (_Component) {
       listType: listType,
       items: this.state.fileList,
       onPreview: this.handlePreview,
-      onRemove: this.handleManualRemove
+      onRemove: this.handleManualRemove,
+      showRemoveIcon: !disabled && showRemoveIcon,
+      showPreviewIcon: showPreviewIcon
     }) : null;
 
     if (type === 'drag') {
