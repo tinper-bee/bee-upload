@@ -1,15 +1,16 @@
 /**
- * @title 图片列表`Upload`
- * @description 图片文件列表以图片的形式展示。关键参数 `listType:picture`。
+ * @title 图片列表
+ * @description 设置 `listType = picture`，图片文件列表以图片的形式展示。
  */
 
 import React, { Component } from 'react';
 import Icon from 'bee-icon';
 import Upload from '../../src';
+import Button from 'bee-button';
 
-const demo4props = {
+const demo3props = {
   action: '/upload.do',
-  listType: 'picture-card',
+  listType: 'picture',
   defaultFileList: [{
     uid: -1,
     name: 'xxx.png',
@@ -29,9 +30,10 @@ class Demo3 extends Component {
   render(){
     return(
       <div>
-        <Upload {...demo4props}>
-          <Icon type="uf-plus" style={{fontSize:'22px'}}/> 
-          <p>Upload</p>
+        <Upload {...demo3props}>
+          <Button type="primary" shape="border">
+            <Icon type="uf-upload" /> 上传
+          </Button>
         </Upload>
       </div>
     )

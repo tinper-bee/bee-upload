@@ -14,7 +14,7 @@ function T() {
 
 // Fix IE file.status problem
 // via coping a new Object
-function fileToObject(file): any {
+function fileToObject(file) {
   return {
     lastModified: file.lastModified,
     lastModifiedDate: file.lastModifiedDate,
@@ -130,12 +130,12 @@ const defaultProps = {
 };
 
 class Upload extends Component {
-  recentUploadStatus: boolean | PromiseLike<any>;
-  progressTimer: any;
-  refs: {
-    [key: string]: any;
-    upload: any;
-  };
+  // recentUploadStatus: boolean | PromiseLike<any>;
+  // progressTimer: any;
+  // refs: {
+  //   [key: string]: any;
+  //   upload: any;
+  // };
 
   constructor(props) {
     super(props);
@@ -314,6 +314,7 @@ class Upload extends Component {
       clsPrefix = '', showUploadList, listType,
       type, disabled, children, className,
     } = this.props;
+    const { showRemoveIcon, showPreviewIcon } = showUploadList;
     const { previewVisible, previewImage } = this.state
 
     const rcUploadProps = assign({}, this.props, {
@@ -330,6 +331,8 @@ class Upload extends Component {
         items={this.state.fileList}
         onPreview={this.handlePreview}
         onRemove={this.handleManualRemove}
+        showRemoveIcon={!disabled && showRemoveIcon}
+        showPreviewIcon={showPreviewIcon}
       />
     ) : null;
 
