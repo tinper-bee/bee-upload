@@ -209,12 +209,12 @@ var UploadList = function (_Component) {
               return _this3.handlePreview(file, e);
             }
           },
-          _react2["default"].createElement(_beeIcon2["default"], { type: 'eye-open' })
+          _react2["default"].createElement(_beeIcon2["default"], { type: 'uf-eye-o' })
         ),
-        _react2["default"].createElement(_beeIcon2["default"], { type: 'uf-close', title: '\u79FB\u9664\u6587\u4EF6', onClick: function onClick() {
+        _react2["default"].createElement(_beeIcon2["default"], { type: 'uf-del', title: '\u79FB\u9664\u6587\u4EF6', onClick: function onClick() {
             return _this3.handleClose(file);
           } })
-      ) : _react2["default"].createElement(_beeIcon2["default"], { type: 'uf-close', title: '\u79FB\u9664\u6587\u4EF6', onClick: function onClick() {
+      ) : _react2["default"].createElement(_beeIcon2["default"], { type: 'uf-del', title: '\u79FB\u9664\u6587\u4EF6', onClick: function onClick() {
           return _this3.handleClose(file);
         } });
 

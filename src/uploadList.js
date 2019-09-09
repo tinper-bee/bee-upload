@@ -143,12 +143,13 @@ class UploadList extends Component{
             style={style}
             onClick={e => this.handlePreview(file, e)}
           >
-            <Icon type="eye-open" />
+            <Icon type="uf-eye-o" />
           </a>
-          <Icon type="uf-close" title="移除文件" onClick={() => this.handleClose(file)} />
+
+          <Icon type="uf-del" title="移除文件" onClick={() => this.handleClose(file)} />
         </span>
       ) : (
-        <Icon type="uf-close" title="移除文件" onClick={() => this.handleClose(file)} />
+        <Icon type="uf-del" title="移除文件" onClick={() => this.handleClose(file)} />
       );
 
       return (
