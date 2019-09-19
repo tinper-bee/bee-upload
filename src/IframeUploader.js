@@ -276,7 +276,9 @@ class IframeUploader extends Component{
   render() {
     const {
       component: Tag, disabled, className,
-      clsPrefix, children, style,
+      clsPrefix, children, style, 
+      name, action, headers, data, type, listType, fileList, defaultFileList, size,
+      ...others
     } = this.props;
     const iframeStyle = {
       ...IFRAME_STYLE,
@@ -291,6 +293,7 @@ class IframeUploader extends Component{
       <Tag
         className={cls}
         style={{ position: 'relative', zIndex: 0, ...style }}
+        {...others}
       >
         <iframe
           ref="iframe"
