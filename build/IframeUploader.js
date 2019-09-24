@@ -310,7 +310,17 @@ var IframeUploader = function (_Component) {
         fileList = _props.fileList,
         defaultFileList = _props.defaultFileList,
         size = _props.size,
-        others = _objectWithoutProperties(_props, ['component', 'disabled', 'className', 'clsPrefix', 'children', 'style', 'name', 'action', 'headers', 'data', 'type', 'listType', 'fileList', 'defaultFileList', 'size']);
+        beforeUpload = _props.beforeUpload,
+        showUploadList = _props.showUploadList,
+        supportServerRender = _props.supportServerRender,
+        onStart = _props.onStart,
+        onSuccess = _props.onSuccess,
+        multipart = _props.multipart,
+        onReady = _props.onReady,
+        customRequest = _props.customRequest,
+        withCredentials = _props.withCredentials,
+        onChange = _props.onChange,
+        others = _objectWithoutProperties(_props, ['component', 'disabled', 'className', 'clsPrefix', 'children', 'style', 'name', 'action', 'headers', 'data', 'type', 'listType', 'fileList', 'defaultFileList', 'size', 'beforeUpload', 'showUploadList', 'supportServerRender', 'onStart', 'onSuccess', 'multipart', 'onReady', 'customRequest', 'withCredentials', 'onChange']);
 
     var iframeStyle = _extends({}, IFRAME_STYLE, {
       display: this.state.uploading || disabled ? 'none' : ''

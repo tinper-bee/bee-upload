@@ -277,7 +277,9 @@ class IframeUploader extends Component{
     const {
       component: Tag, disabled, className,
       clsPrefix, children, style, 
-      name, action, headers, data, type, listType, fileList, defaultFileList, size,
+      name, action, headers, data, type, listType, fileList, defaultFileList, size, 
+      beforeUpload, showUploadList, supportServerRender, onStart, onSuccess, multipart,
+      onReady, customRequest, withCredentials, onChange,
       ...others
     } = this.props;
     const iframeStyle = {

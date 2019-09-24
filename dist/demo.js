@@ -16278,7 +16278,8 @@
 	        minHeight = _props.minHeight,
 	        minWidth = _props.minWidth,
 	        bounds = _props.bounds,
-	        props = _objectWithoutProperties(_props, ['dialogClassName', 'className', 'clsPrefix', 'size', 'style', 'contentStyle', 'children', 'draggable', 'resizable', 'resizeClassName', 'minHeight', 'minWidth', 'bounds']);
+	        clearCenteredCls = _props.clearCenteredCls,
+	        props = _objectWithoutProperties(_props, ['dialogClassName', 'className', 'clsPrefix', 'size', 'style', 'contentStyle', 'children', 'draggable', 'resizable', 'resizeClassName', 'minHeight', 'minWidth', 'bounds', 'clearCenteredCls']);
 	
 	    var _state = this.state,
 	        original = _state.original,
@@ -23480,7 +23481,7 @@
 	  var calledOnce = false;
 	
 	  var isNewArgEqualToLast = function isNewArgEqualToLast(newArg, index) {
-	    return isEqual(newArg, lastArgs[index], index);
+	    return isEqual(newArg, lastArgs[index]);
 	  };
 	
 	  var result = function result() {
@@ -35822,7 +35823,7 @@
 	      keyboard = props.keyboard,
 	      centered = props.centered,
 	      getContainer = props.getContainer,
-	      maskStyle = props.maskStyle,
+	      backdropStyle = props.backdropStyle,
 	      okButtonProps = props.okButtonProps,
 	      cancelButtonProps = props.cancelButtonProps,
 	      _props$iconType = props.iconType,
@@ -35840,7 +35841,7 @@
 	  var style = props.style || {};
 	  var backdrop = props.backdrop === undefined ? true : props.backdrop;
 	  // 默认为 false，保持旧版默认行为
-	  var maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
+	  var backdropClosable = props.backdropClosable === undefined ? true : props.backdropClosable;
 	  // const runtimeLocale = getConfirmLocale();
 	  var okText = props.okText || (okCancel ? "确定" : "知道了");
 	  var cancelText = props.cancelText || "取消";
@@ -35872,7 +35873,11 @@
 	      className: classString,
 	      show: show,
 	      onHide: close,
-	      backdrop: backdrop },
+	      backdrop: backdrop,
+	      backdropClosable: backdropClosable,
+	      centered: centered,
+	      keyboard: keyboard,
+	      backdropStyle: backdropStyle },
 	    _react2["default"].createElement(
 	      _Modal2["default"].Header,
 	      null,
@@ -37374,7 +37379,17 @@
 	        fileList = _props.fileList,
 	        defaultFileList = _props.defaultFileList,
 	        size = _props.size,
-	        others = _objectWithoutProperties(_props, ['component', 'clsPrefix', 'className', 'disabled', 'style', 'multiple', 'accept', 'children', 'name', 'action', 'headers', 'data', 'type', 'listType', 'fileList', 'defaultFileList', 'size']);
+	        beforeUpload = _props.beforeUpload,
+	        showUploadList = _props.showUploadList,
+	        supportServerRender = _props.supportServerRender,
+	        onStart = _props.onStart,
+	        onSuccess = _props.onSuccess,
+	        multipart = _props.multipart,
+	        onReady = _props.onReady,
+	        customRequest = _props.customRequest,
+	        withCredentials = _props.withCredentials,
+	        onChange = _props.onChange,
+	        others = _objectWithoutProperties(_props, ['component', 'clsPrefix', 'className', 'disabled', 'style', 'multiple', 'accept', 'children', 'name', 'action', 'headers', 'data', 'type', 'listType', 'fileList', 'defaultFileList', 'size', 'beforeUpload', 'showUploadList', 'supportServerRender', 'onStart', 'onSuccess', 'multipart', 'onReady', 'customRequest', 'withCredentials', 'onChange']);
 	
 	    var cls = (0, _classnames2['default'])((_classNames = {}, _defineProperty(_classNames, clsPrefix, true), _defineProperty(_classNames, clsPrefix + '-disabled', disabled), _defineProperty(_classNames, className, className), _classNames));
 	    var events = disabled ? {} : {
@@ -37858,7 +37873,17 @@
 	        fileList = _props.fileList,
 	        defaultFileList = _props.defaultFileList,
 	        size = _props.size,
-	        others = _objectWithoutProperties(_props, ['component', 'disabled', 'className', 'clsPrefix', 'children', 'style', 'name', 'action', 'headers', 'data', 'type', 'listType', 'fileList', 'defaultFileList', 'size']);
+	        beforeUpload = _props.beforeUpload,
+	        showUploadList = _props.showUploadList,
+	        supportServerRender = _props.supportServerRender,
+	        onStart = _props.onStart,
+	        onSuccess = _props.onSuccess,
+	        multipart = _props.multipart,
+	        onReady = _props.onReady,
+	        customRequest = _props.customRequest,
+	        withCredentials = _props.withCredentials,
+	        onChange = _props.onChange,
+	        others = _objectWithoutProperties(_props, ['component', 'disabled', 'className', 'clsPrefix', 'children', 'style', 'name', 'action', 'headers', 'data', 'type', 'listType', 'fileList', 'defaultFileList', 'size', 'beforeUpload', 'showUploadList', 'supportServerRender', 'onStart', 'onSuccess', 'multipart', 'onReady', 'customRequest', 'withCredentials', 'onChange']);
 	
 	    var iframeStyle = _extends({}, IFRAME_STYLE, {
 	      display: this.state.uploading || disabled ? 'none' : ''
