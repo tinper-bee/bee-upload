@@ -2408,7 +2408,7 @@
       margin-right: 4px;
       font-size: 12px;
       color: #999; }
-    .u-upload-list .u-upload-list-item-info .uf-del {
+    .u-upload-list .u-upload-list-item-info .uf-close {
       display: inline-block;
       font-size: 12px;
       font-size: 10px \9;
@@ -2434,13 +2434,13 @@
       zoom: 1;
       transition: all 0.3s ease;
       opacity: 0; }
-    .u-upload-list .u-upload-list-item-info .uf-del:hover {
-      color: white; }
+    .u-upload-list .u-upload-list-item-info .uf-close:hover {
+      color: #666; }
     .u-upload-list .u-upload-list-item-info .uf-eye-o:hover {
       color: white; }
   .u-upload-list .u-upload-list-item-error .anticon-paper-clip {
     color: #f50; }
-  .u-upload-list .u-upload-list-item-error .uf-del {
+  .u-upload-list .u-upload-list-item-error .uf-close {
     opacity: 1; }
   .u-upload-list .u-upload-list-item-progress {
     padding: 0 8px 0 20px;
