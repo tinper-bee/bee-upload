@@ -1,3 +1,13 @@
+<a name="2.0.7"></a>
+## [2.0.7](https://github.com/tinper-bee/upload/compare/v2.0.6...v2.0.7) (2019-12-17)
+
+
+### Bug Fixes
+
+* **bee-upload:** Fix abort error when using custom request ([e492b57](https://github.com/tinper-bee/upload/commit/e492b57))
+
+
+
 <a name="2.0.6"></a>
 ## [2.0.6](https://github.com/tinper-bee/upload/compare/v2.0.5...v2.0.6) (2019-11-22)
 
