@@ -191,7 +191,7 @@ var Upload = function (_Component) {
 
       // beforeUpload=(file,fileList)=>{
       //   this.props.beforeUpload(file,this.state.fileList)
-      // }
+      // }  
 
     };
 
@@ -289,6 +289,24 @@ var Upload = function (_Component) {
       }
     };
 
+    _this.onDragEnter = function (e) {
+      _this.lastenter = e.target; // 记录最后进入的元素
+      _this.setState({
+        dragState: 'dragover'
+      });
+    };
+
+    _this.onDragLeave = function (e) {
+      // 如果此时退的元素是最后进入的元素，说明是真正退出了`drag-zone`元素
+      if (_this.lastenter === e.target) {
+        _this.setState({
+          dragState: e.type
+        });
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    };
+
     _this.onFileDrop = function (e) {
       _this.setState({
         dragState: e.type
@@ -317,6 +335,7 @@ var Upload = function (_Component) {
       fileList: _this.props.fileList || _this.props.defaultFileList || [],
       dragState: 'drop'
     };
+    _this.lastenter = null;
     return _this;
   }
 
@@ -444,9 +463,10 @@ var Upload = function (_Component) {
           'div',
           {
             className: dragCls,
-            onDrop: this.onFileDrop,
-            onDragOver: this.onFileDrop,
-            onDragLeave: this.onFileDrop
+            onDrop: this.onFileDrop
+            // onDragOver={this.onFileDrop}
+            , onDragLeave: this.onDragLeave,
+            onDragEnter: this.onDragEnter
           },
           _react2["default"].createElement(
             _Upload2["default"],

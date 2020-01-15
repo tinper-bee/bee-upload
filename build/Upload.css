@@ -2684,3 +2684,6 @@
   to {
     margin-top: -25px;
     opacity: 0; } }
+
+.u-upload.u-upload-drag-hover * {
+  pointer-events: none; }
