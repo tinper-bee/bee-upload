@@ -36654,7 +36654,9 @@
 	  supportServerRender: _propTypes2['default'].bool,
 	  style: _propTypes2['default'].object,
 	  disabled: _propTypes2['default'].bool,
-	  clsPrefix: _propTypes2['default'].string
+	  clsPrefix: _propTypes2['default'].string,
+	  enterDragger: _propTypes2['default'].func,
+	  leaveDragger: _propTypes2['default'].func
 	};
 	
 	var defaultProps = {
@@ -36669,7 +36671,9 @@
 	  listType: 'text', // or pictrue
 	  className: '',
 	  disabled: false,
-	  supportServerRender: true
+	  supportServerRender: true,
+	  enterDragger: function enterDragger() {},
+	  leaveDragger: function leaveDragger() {}
 	};
 	
 	var Upload = function (_Component) {
@@ -36796,6 +36800,7 @@
 	      _this.setState({
 	        dragState: 'dragover'
 	      });
+	      _this.props.enterDragger();
 	    };
 	
 	    _this.onDragLeave = function (e) {
@@ -36806,6 +36811,7 @@
 	        });
 	        e.stopPropagation();
 	        e.preventDefault();
+	        _this.props.leaveDragger();
 	      }
 	    };
 	
@@ -36813,6 +36819,7 @@
 	      _this.setState({
 	        dragState: e.type
 	      });
+	      _this.props.leaveDragger();
 	    };
 	
 	    _this.handlePreview = function (file) {

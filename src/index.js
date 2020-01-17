@@ -111,7 +111,9 @@ const propTypes = {
   supportServerRender: PropTypes.bool,
   style: PropTypes.object,
   disabled: PropTypes.bool,
-  clsPrefix: PropTypes.string
+  clsPrefix: PropTypes.string,
+  enterDragger: PropTypes.func,
+  leaveDragger: PropTypes.func
 }
 
 const defaultProps = {
@@ -127,6 +129,8 @@ const defaultProps = {
   className: '',
   disabled: false,
   supportServerRender: true,
+  enterDragger: ()=>{},
+  leaveDragger: ()=>{}
 };
 
 class Upload extends Component {
@@ -316,6 +320,7 @@ class Upload extends Component {
     this.setState({
       dragState: 'dragover'
     })
+    this.props.enterDragger()
   }
 
   onDragLeave = (e) => {
@@ -326,6 +331,7 @@ class Upload extends Component {
       })
       e.stopPropagation();
       e.preventDefault();
+      this.props.leaveDragger()
     }
   }
 
@@ -333,6 +339,7 @@ class Upload extends Component {
     this.setState({
       dragState: e.type
     })
+    this.props.leaveDragger()
   }
 
   clearProgressTimer() {

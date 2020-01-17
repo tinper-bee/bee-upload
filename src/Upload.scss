@@ -469,7 +469,3 @@
     opacity: 0;
   }
 }
-// fix: dragleave-of-parent-element-fires-when-dragging-over-children-elements
-.u-upload.u-upload-drag-hover * {
-    pointer-events: none;
-}
