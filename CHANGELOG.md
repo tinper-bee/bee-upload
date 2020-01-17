@@ -1,3 +1,13 @@
+<a name="2.1.1"></a>
+## [2.1.1](https://github.com/tinper-bee/upload/compare/v2.1.0...v2.1.1) (2020-01-17)
+
+
+### Features
+
+* 增加enterDragger、leaveDragger回调 ([7d95eaa](https://github.com/tinper-bee/upload/commit/7d95eaa))
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/tinper-bee/upload/compare/v2.0.8...v2.1.0) (2020-01-15)
 
