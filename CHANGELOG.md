@@ -1,3 +1,12 @@
+## [2.1.4](https://github.com/tinper-bee/upload/compare/v2.1.3...v2.1.4) (2021-01-26)
+
+
+### Features
+
+* add mergeFiles config ([e8a701f](https://github.com/tinper-bee/upload/commit/e8a701f725440844932067f33a5c62967dc097a7))
+
+
+
 ## [2.1.3](https://github.com/tinper-bee/upload/compare/v2.1.2...v2.1.3) (2020-04-24)
 
 
