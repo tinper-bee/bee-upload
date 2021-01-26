@@ -91,10 +91,16 @@ class AjaxUploader extends Component{
   uploadFiles(files) {
     const postFiles = Array.prototype.slice.call(files);
     const len = postFiles.length;
-    for (let i = 0; i < len; i++) {
-      const file = postFiles[i];
-      file.uid = getUid();
-      this.upload(file, postFiles);
+    const { mergeFiles } = this.props
+    if (mergeFiles) {
+      const file = { filesArray: postFiles, uid: getUid() }
+      this.upload(file, postFiles)
+    } else {
+      for (let i = 0; i < len; i++) {
+        const file = postFiles[i];
+        file.uid = getUid();
+        this.upload(file, postFiles);
+      }
     }
   }
 
@@ -135,7 +141,7 @@ class AjaxUploader extends Component{
     this.reqs[uid] = request({
       action: props.action,
       filename: props.name,
-      file,
+      file: file.filesArray || file,
       data,
       headers: props.headers,
       withCredentials: props.withCredentials,

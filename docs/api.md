@@ -35,6 +35,7 @@ import 'bee-upload/build/Upload.css';
 |headers|设置请求的头部信息 兼容ie10以上|object|-|
 |showUploadList|是否展示文件列表, 可设为一个对象，用于单独设定 `showPreviewIcon` 和 `showRemoveIcon`|Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean }|true|
 |multiple|是否支持多文件上传 兼容ie10以上|bool|false|
+|mergeFiles|是否合并上传文件数组|bool|false|
 |accept|设置文件接收类型|string|-|
 |beforeUpload|上传文件之前的钩子，参数为上传的文件，若返回 `false` 则停止上传。支持返回一个 Promise 对象，Promise 对象 reject 时则停止上传，resolve 时开始上传（ resolve 传入 `File` 或 `Blob` 对象则上传 resolve 传入对象）。注意：IE9 不支持该方法。|(file, fileList) => `boolean | Promise`|-|
 |customRequest|通过覆盖默认的上传行为，可以自定义自己的上传实现|Function|-|
