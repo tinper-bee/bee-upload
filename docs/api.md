@@ -45,6 +45,7 @@ import 'bee-upload/build/Upload.css';
 |supportServerRender|服务端渲染时需要打开这个|boolean|false|
 |disabled|是否禁用，设置为 true 后前端禁止删除已上传文件|boolean|false|
 |withCredentials|上传请求时是否携带 cookie|boolean|false|
+|removeText|移除文件的文本|string|-|
 |enterDragger|拖拽上传，当鼠标拖拽文件进入 Dragger 区域时触发|Function|-|
 |leaveDragger|拖拽上传，当鼠标拖拽文件离开 Dragger 区域时触发|Function|-|
 

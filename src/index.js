@@ -374,7 +374,7 @@ class Upload extends Component {
   render() {
     const {
       clsPrefix = '', showUploadList, listType,
-      type, disabled, children, className,
+      type, disabled, children, className, removeText
     } = this.props;
     const { showRemoveIcon, showPreviewIcon } = showUploadList;
     const { previewVisible, previewImage } = this.state
@@ -394,6 +394,7 @@ class Upload extends Component {
         items={this.state.fileList}
         onPreview={this.handlePreview}
         onRemove={this.handleManualRemove}
+        removeText={removeText || ''}
         showRemoveIcon={!disabled && showRemoveIcon}
         showPreviewIcon={showPreviewIcon}
       />

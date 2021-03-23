@@ -148,10 +148,10 @@ class UploadList extends Component{
         </a>
       ) : null;
       const removeIcon = showRemoveIcon ? (
-        <Icon type="uf-del" title="移除文件" onClick={() => this.handleClose(file)} />
+        <Icon type="uf-del" title={this.props.removeText || "移除文件"} onClick={() => this.handleClose(file)} />
       ) : null;
       const removeIconClose = showRemoveIcon ? (
-        <Icon type="uf-close" title="移除文件" onClick={() => this.handleClose(file)} />
+        <Icon type="uf-close" title={this.props.removeText || "移除文件"} onClick={() => this.handleClose(file)} />
       ) : null;
       const actions = (listType === 'picture-card' && file.status !== 'uploading') ? (
         <span className={`${clsPrefix}-list-item-actions`}>
