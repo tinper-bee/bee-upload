@@ -1,3 +1,12 @@
+## [2.1.5](https://github.com/tinper-bee/upload/compare/v2.1.4...v2.1.5) (2021-03-23)
+
+
+### Features
+
+* add remoteText attr ([c5c00cb](https://github.com/tinper-bee/upload/commit/c5c00cbc218a984daa2b363988d8f1d34921e93f))
+
+
+
 ## [2.1.4](https://github.com/tinper-bee/upload/compare/v2.1.3...v2.1.4) (2021-01-26)
 
 
